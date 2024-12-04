@@ -5,7 +5,7 @@ let newCurrentValue;
 let newTickValues = [];
 
 // 질문 스텝 정의
-const steps = [
+let steps = [
     {
         type: 'input',
         question: '털복숭이 친구(반려견)의 <br> 이름을 알려주세요!',
@@ -149,7 +149,7 @@ const steps = [
 ];
 
 // 계산에 사용될 계수 데이터
-const fectors = {
+let fectors = {
     adult: {
         neuteredY: 1.6,
         neuteredN: 1.8,
@@ -165,13 +165,13 @@ const fectors = {
 /*
 // 슬라이더 값 업데이트 함수
 function updateSliderValues(currentValue, tickValues) {
-    const currentElement = document.getElementById('current-value');
-    const percentage = (currentValue - tickValues[0]) / (tickValues[tickValues.length - 1] - tickValues[0]) * 100;
+    let currentElement = document.getElementById('current-value');
+    let percentage = (currentValue - tickValues[0]) / (tickValues[tickValues.length - 1] - tickValues[0]) * 100;
     currentElement.style.left = percentage + '%';
 
-    const tickLabels = ['label-0', 'label-1', 'label-2', 'label-3', 'label-4', 'label-5', 'label-6', 'label-7', 'label-8', 'label-9', 'label-10'];
+    let tickLabels = ['label-0', 'label-1', 'label-2', 'label-3', 'label-4', 'label-5', 'label-6', 'label-7', 'label-8', 'label-9', 'label-10'];
     tickLabels.forEach((labelId, index) => {
-        const labelElement = document.getElementById(labelId);
+        let labelElement = document.getElementById(labelId);
         if (labelElement) {
             labelElement.textContent = tickValues[index];
         }
@@ -180,10 +180,10 @@ function updateSliderValues(currentValue, tickValues) {
 
 // 동적으로 Tick 값을 생성하는 함수
 function generateTickValues(newCurrentValue) {
-    const step = 10;
-    const rangeSize = 100;
-    const minTickValue = Math.floor(newCurrentValue / rangeSize) * rangeSize;
-    const maxTickValue = minTickValue + rangeSize;
+    let step = 10;
+    let rangeSize = 100;
+    let minTickValue = Math.floor(newCurrentValue / rangeSize) * rangeSize;
+    let maxTickValue = minTickValue + rangeSize;
 
     let tickValues = [];
     for (let i = minTickValue; i <= maxTickValue; i += step) {
@@ -197,14 +197,14 @@ function generateTickValues(newCurrentValue) {
 
 // form data 가져오기 함수
 function getFormData(step) {
-    const inputs = document.querySelectorAll(`[name^="${step.name}"]`);
+    let inputs = document.querySelectorAll(`[name^="${step.name}"]`);
 
     if (step.type === 'select' && step.name === 'birth') {
         formData[step.name] = Array.from(inputs).map(input => input.value).join('-');
     } else if (step.type === 'checkbox') {
         formData[step.name] = Array.from(inputs).filter(input => input.checked).map(input => input.value);
     } else if (step.type === 'radio') {
-        const checkedInput = Array.from(inputs).find(input => input.checked);
+        let checkedInput = Array.from(inputs).find(input => input.checked);
         formData[step.name] = checkedInput ? checkedInput.value : null;
     } else {
         formData[step.name] = Array.from(inputs).map(input => input.value);
@@ -215,38 +215,38 @@ function getFormData(step) {
 
 // 질문 생성 함수
 function renderStep(step) {
-    const container = document.getElementById('form-container');
+    let container = document.getElementById('form-container');
     container.innerHTML = '';
 
-    const question = document.createElement('h3');
+    let question = document.createElement('h3');
     question.innerHTML = typeof step.question === 'function' ? step.question(formData['name']) : step.question;
     question.classList.add('text-center', 'mb-4');
     container.appendChild(question);
 
     if (step.name === 'allergy') {
-        const htag = document.createElement('h6');
+        let htag = document.createElement('h6');
         htag.innerHTML = '있다면 포포네에서 사용하는 식재료 중 제외해야 하는 재료를 선택해주세요.';
         htag.classList.add('text-center', 'mb-4');
         container.appendChild(htag);
     }
 
-    const formGroup = document.createElement('div');
+    let formGroup = document.createElement('div');
     formGroup.classList.add('mb-3');
 
     // 각 스텝에 대한 폼 생성 처리
     if (step.type === 'input') {
         if (step.name === 'weight') {
-            const inputGroup = document.createElement('div');
+            let inputGroup = document.createElement('div');
             inputGroup.classList.add('input-group');
 
-            const input = document.createElement('input');
+            let input = document.createElement('input');
             input.type = 'text';
             input.name = step.name;
             input.classList.add('form-control', 'rounded-left');
             input.placeholder = step.placeholder;
             input.required = step.required;
 
-            const inputGroupAppend = document.createElement('span');
+            let inputGroupAppend = document.createElement('span');
             inputGroupAppend.classList.add('input-group-text', 'rounded-right');
             inputGroupAppend.innerText = 'Kg';
 
@@ -256,21 +256,21 @@ function renderStep(step) {
             formGroup.appendChild(inputGroup);
         } else if (step.name === 'breed') {
             // 라디오 버튼 추가
-            const radioGroup = document.createElement('div');
+            let radioGroup = document.createElement('div');
             radioGroup.classList.add('d-flex', 'justify-content-around', 'w-100', 'mt-3');
 
             ['소형견', '중형견', '대형견'].forEach(size => {
-                const radioDiv = document.createElement('div');
+                let radioDiv = document.createElement('div');
                 radioDiv.classList.add('form-check');
 
-                const radioInput = document.createElement('input');
+                let radioInput = document.createElement('input');
                 radioInput.classList.add('form-check-input');
                 radioInput.type = 'radio';
                 radioInput.name = 'size';
                 radioInput.value = size;
                 radioInput.id = size;
 
-                const radioLabel = document.createElement('label');
+                let radioLabel = document.createElement('label');
                 radioLabel.classList.add('form-check-label');
                 radioLabel.htmlFor = size;
                 radioLabel.innerText = size;
@@ -295,7 +295,7 @@ function renderStep(step) {
 
             formGroup.appendChild(radioGroup);
 
-            const input = document.createElement('input');
+            let input = document.createElement('input');
             input.type = 'text';
             input.name = step.name;
             input.classList.add('form-control', 'nameInput');
@@ -305,7 +305,7 @@ function renderStep(step) {
             formGroup.appendChild(input);
 
         } else {
-            const input = document.createElement('input');
+            let input = document.createElement('input');
             input.type = 'text';
             input.name = step.name;
             input.classList.add('form-control', 'nameInput');
@@ -315,7 +315,7 @@ function renderStep(step) {
             formGroup.appendChild(input);
         }
     } else if (step.type === 'radio' || step.type === 'checkbox') {
-        const optionContainer = document.createElement('div');
+        let optionContainer = document.createElement('div');
 
         if (step.name === 'bodyType') {
             optionContainer.classList.add('b-radio-images');
@@ -327,8 +327,8 @@ function renderStep(step) {
 
         step.options.forEach(option => {
 
-            const input = document.createElement('input');
-            const label = document.createElement('label');
+            let input = document.createElement('input');
+            let label = document.createElement('label');
             label.htmlFor = option.value;
 
             input.type = step.type;
@@ -337,7 +337,7 @@ function renderStep(step) {
             input.value = option.value;
 
             if (option.image) {
-                const img = document.createElement('img');
+                let img = document.createElement('img');
                 img.src = option.image;
                 img.alt = option.label;
                 label.appendChild(img);
@@ -345,11 +345,11 @@ function renderStep(step) {
                 label.innerHTML = `<span>${option.text}</span>`;
             }
 
-            const containerDiv = document.createElement('div');
+            let containerDiv = document.createElement('div');
             if (option.image) {
                 if (step.name === 'bodyType') {
-                    const label = document.createElement('label');
-                    const img = document.createElement('img');
+                    let label = document.createElement('label');
+                    let img = document.createElement('img');
                     containerDiv.classList.add('b-has-img');
                 } else {
                     containerDiv.classList.add('has-img');
@@ -360,7 +360,7 @@ function renderStep(step) {
                 input.name = step.name;
                 input.value = option.value;
 
-                const inputText = document.createElement('input');
+                let inputText = document.createElement('input');
                 inputText.type = 'text';
                 inputText.name = `${step.name}_other`;
                 inputText.placeholder = '기타 내용을 입력해주세요!';
@@ -410,25 +410,25 @@ function renderStep(step) {
         return;
     } else if (step.type === 'select') {
         if (step.name === 'birth') {
-            const selectGroupContainer = document.createElement('div');
+            let selectGroupContainer = document.createElement('div');
             selectGroupContainer.classList.add('d-flex', 'gap-2');
 
             ['years', 'months'].forEach((unit, index) => {
-                const selectGroup = document.createElement('div');
+                let selectGroup = document.createElement('div');
                 selectGroup.classList.add('flex-fill');
 
-                const select = document.createElement('select');
+                let select = document.createElement('select');
                 select.classList.add('form-select');
                 select.name = `${step.name}${index + 1}`;
                 select.required = true;
 
-                const defaultOption = document.createElement('option');
+                let defaultOption = document.createElement('option');
                 defaultOption.value = '';
                 defaultOption.innerText = unit === 'years' ? '생년' : '월';
                 select.appendChild(defaultOption);
 
                 step.options[unit].forEach(option => {
-                    const optionElement = document.createElement('option');
+                    let optionElement = document.createElement('option');
                     optionElement.value = option;
                     optionElement.text = option;
                     select.appendChild(optionElement);
@@ -460,13 +460,13 @@ document.getElementById('next-button').addEventListener('click', () => {
 
     if (!validChk()) return;  // 유효성 검사 실패시 리턴
 
-    const currentStepData = getFormData(steps[currentStep]);
+    let currentStepData = getFormData(steps[currentStep]);
     if (currentStepData) {
         formData[steps[currentStep].name] = currentStepData;
 
         // healthYn 체크: 건강상태 확인
         if (steps[currentStep].name === 'healthYn') {
-            const healthOptions = document.getElementsByName('healthYn');
+            let healthOptions = document.getElementsByName('healthYn');
             let selectedHealth = Array.from(healthOptions).find(option => option.checked);
 
             if (selectedHealth && selectedHealth.value === '아니오') {
@@ -490,19 +490,19 @@ document.getElementById('next-button').addEventListener('click', () => {
 
 // 결과 렌더링 함수
 function renderResults() {
-    const mainSection = document.getElementById('main');
+    let mainSection = document.getElementById('main');
     mainSection.style.display = 'none';
-    const resultSection = document.getElementById('result');
+    let resultSection = document.getElementById('result');
     resultSection.innerHTML = '';
     resultSection.classList.remove('d-none');
 
     let petName = '';
     let reImages = [];
     Object.keys(formData).forEach(key => {
-        const weight = parseFloat(formData['weight']);
-        const birthdate = `${formData['birth']}-01`;
-        const age = calculateAge(birthdate);
-        const neutered = formData['neutered'] === '예' ? 'neuteredY' : 'neuteredN';
+        let weight = parseFloat(formData['weight']);
+        let birthdate = `${formData['birth']}-01`;
+        let age = calculateAge(birthdate);
+        let neutered = formData['neutered'] === '예' ? 'neuteredY' : 'neuteredN';
 
         let condition = '';
         if (formData['bodyType'] === '과체중') {
@@ -511,7 +511,7 @@ function renderResults() {
             condition = 'obese';
         }
 
-        const calculationResult = calculate(weight, age, neutered, condition);
+        let calculationResult = calculate(weight, age, neutered, condition);
 
         if (typeof result === 'string' && calculationResult.includes('~')) {
             let temp = calculationResult.split('~');
@@ -522,13 +522,13 @@ function renderResults() {
 
         //generateTickValues(newCurrentValue);
 
-        const value = formData[key];
+        let value = formData[key];
         if (key === 'name') {
             petName = value;  // 이름 저장
         }
 
         // 이미지 필터링 처리 및 슬라이드 생성
-        const images = [
+        let images = [
             { src: 'https://journey-han.github.io/popone/src/img/result_pork.png', alt: 'result_pork', url: 'https://popone.kr/729973229/?idx=48' },
             { src: 'https://journey-han.github.io/popone/src/img/result_beef.png', alt: 'result_beef', url: 'https://popone.kr/729973229/?idx=49' },
             { src: 'https://journey-han.github.io/popone/src/img/result_chicken.png', alt: 'result_chicken', url: 'https://popone.kr/729973229/?idx=50' },
@@ -540,7 +540,7 @@ function renderResults() {
 
         if (key === 'allergy') {
             // 조건에 따라 추가할 이미지 배열
-            const additionalImages = value.flatMap(value => {
+            let additionalImages = value.flatMap(value => {
                 if (value === '돼지') {
                     return { src: 'https://journey-han.github.io/popone/src/img/result_pork.png', alt: 'result_pork', url: 'https://popone.kr/729973229/?idx=48' };
                 } else if (value === '소') {
@@ -618,16 +618,16 @@ function renderResults() {
     //updateSliderValues(newCurrentValue, newTickValues);
 
     // Swiper 스타일 및 스크립트 로드
-    const link = document.createElement('link');
+    let link = document.createElement('link');
     link.rel = 'stylesheet';
     link.href = 'https://journey-han.github.io/popone/src/css/swiper.css';
     document.head.appendChild(link);
 
-    const script = document.createElement('script');
+    let script = document.createElement('script');
     script.src = "https://journey-han.github.io/popone/src/js/swiper.min.js";
     document.body.appendChild(script);
     script.onload = () => {
-        const swiperOptions = {
+        let swiperOptions = {
             slidesPerView: 1,
             spaceBetween: 10,
             loop: true,
@@ -644,7 +644,7 @@ function renderResults() {
         }
         new Swiper('.swiper-container', swiperOptions);
 
-        const otherGoodsSwiperOptions = {
+        let otherGoodsSwiperOptions = {
             slidesPerView: 3,
             spaceBetween: 10,
             loop: true,
@@ -668,15 +668,15 @@ function renderResults() {
 
 // 진행바 업데이트 함수
 function updateProgressBar() {
-    const progressBar = document.getElementById('progress-bar');
-    const progress = ((currentStep + 2) / steps.length) * 100;
+    let progressBar = document.getElementById('progress-bar');
+    let progress = ((currentStep + 2) / steps.length) * 100;
     progressBar.style.width = `${progress}%`;
     progressBar.setAttribute('aria-valuenow', progress);
 }
 
 function updateProgressBarM() {
-    const progressBar = document.getElementById('progress-bar');
-    const progress = ((currentStep + 1) / steps.length) * 100;
+    let progressBar = document.getElementById('progress-bar');
+    let progress = ((currentStep + 1) / steps.length) * 100;
     progressBar.style.width = `${progress}%`;
     progressBar.setAttribute('aria-valuenow', progress);
 }
@@ -713,10 +713,10 @@ function calculate(weight, age, neutered, condition) {
 
 // 생일로 나이 계산 함수
 function calculateAge(birthdate) {
-    const birth = new Date(birthdate);
-    const today = new Date();
+    let birth = new Date(birthdate);
+    let today = new Date();
     let age = today.getFullYear() - birth.getFullYear();
-    const monthDifference = today.getMonth() - birth.getMonth();
+    let monthDifference = today.getMonth() - birth.getMonth();
 
     if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birth.getDate())) {
         age--;
@@ -727,42 +727,42 @@ function calculateAge(birthdate) {
 
 // 유효성 검사 함수
 function validChk() {
-    const nameField = document.getElementsByName('name')[0];
+    let nameField = document.getElementsByName('name')[0];
     if (nameField && nameField.value === "") {
         alert("잘못된 이름 형식입니다. 한글로 정확히 입력해주세요.");
         nameField.focus();
         return false;
     }
 
-    const birthYear = document.getElementsByName('birth1')[0];
-    const birthMonth = document.getElementsByName('birth2')[0];
+    let birthYear = document.getElementsByName('birth1')[0];
+    let birthMonth = document.getElementsByName('birth2')[0];
     if (birthYear && birthMonth && (!birthYear.value || !birthMonth.value)) {
         alert("잘못된 날짜 형식입니다.");
         birthYear.focus();
         return false;
     }
 
-    const genderField = document.getElementsByName('gender');
+    let genderField = document.getElementsByName('gender');
         if (genderField.length > 0) {
-            const selectedGender = Array.from(genderField).some(option => option.checked);
+            let selectedGender = Array.from(genderField).some(option => option.checked);
             if (!selectedGender) {
                 alert("성별을 선택해주세요!")
                 return false;
             }
         }
 
-        const neuteredField = document.getElementsByName('neutered');
+        let neuteredField = document.getElementsByName('neutered');
         if (neuteredField.length > 0) {
-            const selectedNeutered = Array.from(neuteredField).some(option => option.checked);
+            let selectedNeutered = Array.from(neuteredField).some(option => option.checked);
             if (!selectedNeutered) {
                 alert("중성화 여부를 선택해주세요!")
                 return false;
             }
         }
 
-        const breedField = document.getElementsByName('breed');
+        let breedField = document.getElementsByName('breed');
         if (breedField.length > 0) {
-            const selectedBreed = document.getElementsByName('breed')[0];
+            let selectedBreed = document.getElementsByName('breed')[0];
             if (selectedBreed.value === '') {
                 alert("견종을 입력해주세요!");
                 selectedBreed.focus();
@@ -770,9 +770,9 @@ function validChk() {
             }
         }
 
-        const weightField = document.getElementsByName('weight');
+        let weightField = document.getElementsByName('weight');
         if (weightField.length > 0) {
-            const selectedWeight = document.getElementsByName('weight')[0];
+            let selectedWeight = document.getElementsByName('weight')[0];
             if (selectedWeight.value === '') {
                 alert("체중을 입력해주세요!");
                 selectedWeight.focus();
@@ -784,45 +784,45 @@ function validChk() {
             }
         }
 
-        const lifeStyleField = document.getElementsByName('lifeStyle');
+        let lifeStyleField = document.getElementsByName('lifeStyle');
         if (lifeStyleField.length > 0) {
-            const selectedLifStyle = Array.from(lifeStyleField).some(option => option.checked);
+            let selectedLifStyle = Array.from(lifeStyleField).some(option => option.checked);
             if (!selectedLifStyle) {
                 alert("활동량을 선택해주세요!")
                 return false;
             }
         }
 
-        const bodyTypeField = document.getElementsByName('bodyType');
+        let bodyTypeField = document.getElementsByName('bodyType');
         if (bodyTypeField.length > 0) {
-            const selectedBodyType = Array.from(bodyTypeField).some(option => option.checked);
+            let selectedBodyType = Array.from(bodyTypeField).some(option => option.checked);
             if (!selectedBodyType) {
                 alert("체형을 선택해주세요!")
                 return false;
             }
         }
 
-        const mealTimeField = document.getElementsByName('mealTime');
+        let mealTimeField = document.getElementsByName('mealTime');
         if (mealTimeField.length > 0) {
-            const selectedMealTime = Array.from(mealTimeField).some(option => option.checked);
+            let selectedMealTime = Array.from(mealTimeField).some(option => option.checked);
             if (!selectedMealTime) {
                 alert("식사량을 선택해주세요!")
                 return false;
             }
         }
 
-        const snackTextureField = document.getElementsByName('snackTexture');
+        let snackTextureField = document.getElementsByName('snackTexture');
         if (snackTextureField.length > 0) {
-            const selectedSnack = Array.from(snackTextureField).some(option => option.checked);
+            let selectedSnack = Array.from(snackTextureField).some(option => option.checked);
             if (!selectedSnack) {
                 alert("간식 식감을 선택해주세요!")
                 return false;
             }
         }
 
-        const allergyField = document.getElementsByName('allergy');
+        let allergyField = document.getElementsByName('allergy');
         if (allergyField.length > 0) {
-            const sltdAllergy = Array.from(allergyField).some(option => option.checked);
+            let sltdAllergy = Array.from(allergyField).some(option => option.checked);
             if (!sltdAllergy) {
                 alert("알러지 식재료를 선택해주세요!")
                 return false;
@@ -833,7 +833,7 @@ function validChk() {
         
 }
 /*
-const otherProducts = [ 
+let otherProducts = [ 
     {
         "id": 1,
         "idx" : 55,
@@ -994,7 +994,7 @@ const otherProducts = [
 
 // 제품 데이터를 사용하여 슬라이드에 추가
 function loadProducts() {
-    const sliderContainer = document.getElementById('otherGoods_swiper-wrapper');
+    let sliderContainer = document.getElementById('otherGoods_swiper-wrapper');
     otherProducts.forEach(otherProduct => {
         sliderContainer.innerHTML += createProductHTML(otherProduct);
     });
@@ -1004,11 +1004,11 @@ function loadProducts() {
 /*
 async function fetchProducts() {
     try {
-        const response = await fetch('https://journey-han.github.io/popone/src/json/productsSnack.json');
+        let response = await fetch('https://journey-han.github.io/popone/src/json/productsSnack.json');
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
-        const data = await response.json();
+        let data = await response.json();
         return data;
     } catch (error) {
         console.error('Error fetching products:', error);
