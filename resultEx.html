@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../src/css/swiper.css">
+    <script src="../src/js/swiper.min.js"></script>
+    <title>Image Slider</title>
+    <style>
+        .model_swiper{width: 100%; padding: 50px 0 80px 0;background: #f8f9f9;}
+        .model {width: 90%; margin: auto;}
+        .swiper-slide img {display: block; width: 400px;}
+    </style>
+</head>
+<body>
+
+<h3>포포의 맞춤식을 추천해드릴게요 !</h3>
+<div class="contents_02">
+    <div class="model_swiper">
+        <div class="model">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="moder rrv">
+                            <img src="../../Users/hanji/Downloads/curation-20240731T011833Z-001/curation/src/img/result1.png" alt="result1">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="moder rr">
+                            <img src="../../Users/hanji/Downloads/curation-20240731T011833Z-001/curation/src/img/result2.png" alt="result2">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="moder rrs">
+                            <img src="../../Users/hanji/Downloads/curation-20240731T011833Z-001/curation/src/img/result3.png" alt="result3">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="moder rrv">
+                            <img src="../../Users/hanji/Downloads/curation-20240731T011833Z-001/curation/src/img/result4.png" alt="result4">
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 1,
+        spaceBetween: 40,
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        }
+    });
+</script>
+
+</body>
+</html>

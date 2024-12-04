@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lead Source</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px auto; /* 위, 아래 여백과 가운데 정렬 */
+            max-width: 1200px; /* 본문 최대 너비 */
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        pre {
+            background: #f4f4f4;
+            border: 1px solid #ddd;
+            padding: 10px;
+            max-width: 100%; /* 제한된 크기 설정 */
+            overflow-x: auto; /* 가로 스크롤 추가 */
+            white-space: pre; /* 줄바꿈 허용 */
+            word-wrap: break-word; /* 긴 단어 줄바꿈 */
+        }
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        .highlight {
+            font-weight: bold;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>방명록 Lead Source 관련 수정사항</h1>
+    <br>
+    <h1>1. 신규 고객</h1>
+    <ul>
+        <li>고객 생성 - Lead Source 추가 <code class="highlight">"PersonLeadSource": "Social(Retailer)"</code></li>
+        <li>영업 기회 생성 - Lead Source 추가 <code class="highlight">"LeadSource":"Social(Retailer)"</code></li>
+    </ul>
+    <h2>1-1. 고객 생성</h2>
+    <pre>
+        [2024-12-02 17:24:14 :1404009] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.service.GuestBookBatchService.runGuestbookJob:38] - Guestbook Batch Job started -
+        [2024-12-02 17:24:14 :1404012] [scheduling-1] [39mDEBUG[0;39m [org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug:137] - ==>  Preparing: SELECT b.cxpBoardSeq, b.smcxpCode, b.scId, b.scName, b.dealerCode, b.isAgree, b.personalAgreeSeq, b.NAME, b.mobile, b.sex, b.email, b.birth, b.zipcode, b.addr1, b.addr2, b.faveBrandCode, b.faveModelCode, m.modelName, b.ownBrandCode, b.visitPath, b.memo, b.creDate, b.cxpState, b.cxpAccountId, b.cxpOwnerId, b.cxpAccountState, b.cxpResultMsg, b.cxpErrorMsg, b.batchYn, b.batchCnt, b.batchDate, p.agree1, p.agree2, p.agree3, p.agree4 FROM cxp_board b JOIN cxp_personal_agree p ON b.personalAgreeSeq = p.personalAgreeSeq JOIN cxp_model m ON b.faveModelCode = m.cxpModelCode WHERE batchYn='N' AND batchCnt < 3
+        [2024-12-02 17:24:14 :1404013] [scheduling-1] [39mDEBUG[0;39m [org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug:137] - ==> Parameters: 
+        [2024-12-02 17:24:14 :1404020] [scheduling-1] [39mDEBUG[0;39m [org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug:137] - <==      Total: 1
+        [2024-12-02 17:24:14 :1404021] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.cxp.CxpApiService.getAccessToken:54] - getAccessToken() - Bearer 00D5E000000A5jw!AQEAQHckdI0nABv6nKgR7iqmcsFoT.4mLyGZOLwBAVE0Dsd4yfV6Vcimd68h2emhhL0wc2N9u9gJ37X1YINaqD7joexlG_P6, https://cxp--preprod.sandbox.my.salesforce.com
+        [2024-12-02 17:24:14 :1404021] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.service.GuestBookBatchService.runGuestbookJob:52] - cxpBoardSeq : 260
+        [2024-12-02 17:24:14 :1404022] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.service.GuestBookBatchService.processCxpCreate:114] - cxpBoardSeq : 260, state: 0, cxpAccountId: 
+        [2024-12-02 17:24:14 :1404023] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.service.GuestBookBatchService.processCxpCreate:115] - map= {cxpBoardSeq=260, smCxpCode=B54, scName=강명석, dealerName=null, dealerCode=DS1301, name=한지연_테스트2, mobile=01021263835, isAgree=Y, personalAgreeSeq=1484, sex=2, email=test@gmail.com, birth=1992-01-01, zipcode=null, addr1=, addr2=, faveBrandCode=a0Z24000007bJHYEA2, faveModelCode=a0Z24000007bM6JEAU, modelName=New Range Rover, ownBrandCode=a0Z24000007bLQKEA2, visitPath=Social(Retailer), memo=, creDate=2024-12-02, cxpState=0, cxpAccountId=, cxpAccountState=N, cxpOwnerId=0057U0000011QlDQAU, batchYn=N, batchCnt=0, cxpResultMsg=null, cxpErrorMsg=null, agree1=true, agree2=true, agree3=true, agree4=false, serviceType=GUESTBOOK, city=null, addr=null, gender=Female}
+        [2024-12-02 17:24:14 :1404023] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.service.GuestBookBatchService.processCxpCreate:118] - cxpAccountId=>true
+        [2024-12-02 17:24:14 :1404025] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.service.GuestBookBatchService.processCxpCreate:122] - 1. createLead - New Account
+        [2024-12-02 17:24:14 :1404025] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.cxp.CxpApiService.getAccessToken:54] - getAccessToken() - Bearer 00D5E000000A5jw!AQEAQHckdI0nABv6nKgR7iqmcsFoT.4mLyGZOLwBAVE0Dsd4yfV6Vcimd68h2emhhL0wc2N9u9gJ37X1YINaqD7joexlG_P6, https://cxp--preprod.sandbox.my.salesforce.com
+        [2024-12-02 17:24:14 :1404025] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.cxp.CxpApiService.createLead:100] - createLead() - 
+        [2024-12-02 17:24:14 :1404119] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.cxp.CxpApiService.createLead:236] - request : {
+            "allOrNone": true,
+            "collateSubrequests": false,
+            "compositeRequest": [
+                {
+                    "method": "GET",
+                    "url": "/services/data/v56.0/query/?q=SELECT id, DeveloperName FROM RecordType WHERE SobjectType  = 'Account' AND DeveloperName  = 'Individual'",
+                    "referenceId": "refRecordType"
+                },
+                {
+                    "method": "GET",
+                    "url": "/services/data/v56.0/query/?q=SELECT id, DeveloperName FROM RecordType WHERE SobjectType='Account' AND DeveloperName='Individual_Golden_Record'",
+                    "referenceId": "refRecordTypeJlrPrimary"
+                },
+                {
+                    "method": "GET",
+                    "url": "/services/data/v56.0/query/?q=SELECT Id, Dealer_CI_Code__c, Dealer_CI_Code_2__c FROM Account WHERE DMS_Identifier__c = 'B54' AND Record_Sub_Type__c = 'Dual Brand' AND Country_ISO_Code__c = 'KR' AND Retailer_Status__c = 'Trading'",
+                    "referenceId": "refShowroom"
+                },
+                {
+                    "method": "GET",
+                    "url": "/services/data/v56.0/query/?q=SELECT Id FROM user where name = 'Owner (KR) Retailer'",
+                    "referenceId": "refPrimaryOwner"
+                },
+                {
+                    "method": "PATCH",
+                    "url": "/services/data/v56.0/sobjects/Account/External_ID_SF_KR__c/KR-한지연_테스트2-01021263835-IndJLRPirmary",
+                    "referenceId": "refUpsertAccount_JLRPrimary",
+                    "body": {
+                        "LastName": "한지연_테스트2",
+                        "PersonMobilePhone": "01021263835",
+                        "PersonEmail": "test@gmail.com",
+                        "RecordTypeId": "@{refRecordTypeJlrPrimary.records[0].Id}",
+                        "OwnerId": "@{refPrimaryOwner.records[0].Id}",
+                        "BillingCountry": "Korea",
+                        "BillingCity" : null,
+                        "BillingStreet": null,
+                        "BillingPostalCode":null,
+                        "PersonMailingCountry": "Korea",
+                        "PersonMailingCity" : null,
+                        "PersonMailingStreet": null,
+                        "PersonMailingPostalCode":null,
+                        "Gender__pc": "Female",
+                        "PersonBirthdate": "1992-01-01",
+                        "Brand__c": "a0Z24000007bLQKEA2", 
+                        <span class="highlight">"PersonLeadSource": "Social(Retailer),"</span>
+                        "PersonHasOptedOutOfEmail": false,
+                        "et4ae5__HasOptedOutOfMobile__pc": false,
+                        "PersonDoNotCall": false,
+                        "Language__pc": "Korean",
+                        "Country_ISO_Code__c": "KR",
+                        "Select_Country_ISO_Code__c": "KR",
+                        "Personal_Information_Consent__c": true,
+                        "Personal_Information_Consent_date__c": "2024-12-02",
+                        "Personal_Information_Third_Party_Consent__c": true,
+                        "Personal_Information_TP_Consent_date__c": "2024-12-02",
+                        "Personal_Information_Transfer_Consent__c": true,
+                        "Personal_Information_TC_date__c": "2024-12-02",
+                        "Personal_Information_Publicity_Promotion__c": false,
+                        "Personal_Information_PP_Consent_date__c": null
+                    }
+                },
+                {
+                    "method": "PATCH",
+                    "url": "/services/data/v56.0/sobjects/Account/External_ID_SF_KR__c/KR-한지연_테스트2-01021263835-@{refShowroom.records[0].Id}",
+                    "referenceId": "refUpsertAccount",
+                    "body": {
+                        "LastName": "한지연_테스트2",
+                        "PersonMobilePhone": "01021263835",
+                        "PersonEmail": "test@gmail.com",
+                        "RecordTypeId": "@{refRecordType.records[0].Id}",
+                        "BillingCountry": "Korea",
+                        "BillingCity" : null,
+                        "BillingStreet": null,
+                        "BillingPostalCode":null,
+                        "PersonMailingCountry": "Korea",
+                        "PersonMailingCity" : null,
+                        "PersonMailingStreet": null,
+                        "PersonMailingPostalCode":null,
+                        "Gender__pc": "Female",
+                        "PersonBirthdate": "1992-01-01",
+                        "Brand__c": "a0Z24000007bLQKEA2", 
+                        <span class="highlight">"PersonLeadSource": "Social(Retailer),"</span>
+                        "PersonHasOptedOutOfEmail": false,
+                        "et4ae5__HasOptedOutOfMobile__pc": false,
+                        "PersonDoNotCall": false,
+                        "Language__pc": "Korean",
+                        "Country_ISO_Code__c": "KR",
+                        "Select_Country_ISO_Code__c": "KR",
+                        "Personal_Information_Consent__c": true,
+                        "Personal_Information_Consent_date__c": "2024-12-02",
+                        "Personal_Information_Third_Party_Consent__c": true,
+                        "Personal_Information_TP_Consent_date__c": "2024-12-02",
+                        "Personal_Information_Transfer_Consent__c": true,
+                        "Personal_Information_TC_date__c": "2024-12-02",
+                        "Personal_Information_Publicity_Promotion__c": false,
+                        "Personal_Information_PP_Consent_date__c": null,
+                        "Preferred_Sales_Retailer__c": "@{refShowroom.records[0].Id}",
+                        "Primary_Account__c": "@{refUpsertAccount_JLRPrimary.id}",
+                        "Is_Primary__c":"false", 
+                        "Dealer_CI_Code__c":"@{refShowroom.records[0].Dealer_CI_Code__c}", 
+                        "Dealer_CI_Code_2__c":"@{refShowroom.records[0].Dealer_CI_Code_2__c}", 
+                        "Owner_Retailer__c": "@{refShowroom.records[0].Id}" 
+                    }
+                },
+                {
+                    "method": "GET",
+                    "url": "/services/data/v56.0/query/?q=SELECT Id, OwnerId FROM Account WHERE Id = '@{refUpsertAccount.id}'",
+                    "referenceId": "refCustomer"
+                }
+        ]}
+    </pre>
+
+    <h2>1-2. Account Owner 변경</h2>
+    <pre>
+        [2024-12-02 17:24:22 :1411978] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.cxp.CxpApiService.createLead:238] - response : CxpResponse(compositeResponse=[{body={totalSize=1, done=true, records=[{attributes={type=RecordType, url=/services/data/v56.0/sobjects/RecordType/01224000000TXPcAAO}, Id=01224000000TXPcAAO, DeveloperName=Individual}]}, httpHeaders={}, httpStatusCode=200, referenceId=refRecordType}, {body={totalSize=1, done=true, records=[{attributes={type=RecordType, url=/services/data/v56.0/sobjects/RecordType/0121o000000TjjTAAS}, Id=0121o000000TjjTAAS, DeveloperName=Individual_Golden_Record}]}, httpHeaders={}, httpStatusCode=200, referenceId=refRecordTypeJlrPrimary}, {body={totalSize=1, done=true, records=[{attributes={type=Account, url=/services/data/v56.0/sobjects/Account/0017U000005t7M7QAI}, Id=0017U000005t7M7QAI, Dealer_CI_Code__c=01080, Dealer_CI_Code_2__c=01080}]}, httpHeaders={}, httpStatusCode=200, referenceId=refShowroom}, {body={totalSize=1, done=true, records=[{attributes={type=User, url=/services/data/v56.0/sobjects/User/0057U000000uV0oQAE}, Id=0057U000000uV0oQAE}]}, httpHeaders={}, httpStatusCode=200, referenceId=refPrimaryOwner}, {body={id=001Vc00000AxzU4IAJ, success=true, errors=[], created=true}, httpHeaders={Location=/services/data/v56.0/sobjects/Account/001Vc00000AxzU4IAJ}, httpStatusCode=201, referenceId=refUpsertAccount_JLRPrimary}, {body={id=001Vc00000AxzU5IAJ, success=true, errors=[], created=true}, httpHeaders={Location=/services/data/v56.0/sobjects/Account/001Vc00000AxzU5IAJ}, httpStatusCode=201, referenceId=refUpsertAccount}, {body={totalSize=1, done=true, records=[{attributes={type=Account, url=/services/data/v56.0/sobjects/Account/001Vc00000AxzU5IAJ}, Id=001Vc00000AxzU5IAJ, OwnerId=0057U000000utuCQAQ}]}, httpHeaders={}, httpStatusCode=200, referenceId=refCustomer}])
+        [2024-12-02 17:24:22 :1411980] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.service.GuestBookBatchService.processCxpCreate:148] - createLead Success : cxpState => 1, cxpAccountId => 001Vc00000AxzU5IAJ
+        [2024-12-02 17:24:22 :1411980] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.service.GuestBookBatchService.processCxpCreate:218] - 2. changeAccountOwner - New account
+        [2024-12-02 17:24:22 :1411980] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.cxp.CxpApiService.getAccessToken:54] - getAccessToken() - Bearer 00D5E000000A5jw!AQEAQHckdI0nABv6nKgR7iqmcsFoT.4mLyGZOLwBAVE0Dsd4yfV6Vcimd68h2emhhL0wc2N9u9gJ37X1YINaqD7joexlG_P6, https://cxp--preprod.sandbox.my.salesforce.com
+        [2024-12-02 17:24:22 :1411984] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.cxp.CxpApiService.changeAccountOwner:573] - request : {
+            "allOrNone": true,
+            "collateSubrequests": false,
+            "compositeRequest": [
+                {
+                    "method": "PATCH",
+                    "url": "/services/data/v56.0/sobjects/Account/001Vc00000AxzU5IAJ",
+                    "referenceId": "refUpdateAccount",
+                    "body": {
+                        "OwnerId" : "0057U0000011QlDQAU"
+                    }
+                }
+            ]
+        }
+    </pre>
+
+    <h2>1-3. 영업 기회 생성</h2>
+    <pre>
+        [2024-12-02 17:24:26 :1415717] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.cxp.CxpApiService.changeAccountOwner:575] - response : CxpResponse(compositeResponse=[{body=null, httpHeaders={}, httpStatusCode=204, referenceId=refUpdateAccount}])
+        [2024-12-02 17:24:26 :1415718] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.service.GuestBookBatchService.processCxpCreate:232] - changeAccountOwner Success cxpState => 2, cxpAccountId => 001Vc00000AxzU5IAJ
+        [2024-12-02 17:24:26 :1415718] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.service.GuestBookBatchService.processCxpCreate:288] - 3. createOppty - New Account
+        [2024-12-02 17:24:26 :1415718] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.cxp.CxpApiService.createOppty:418] - createOppty() -
+        [2024-12-02 17:24:26 :1415718] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.cxp.CxpApiService.getAccessToken:54] - getAccessToken() - Bearer 00D5E000000A5jw!AQEAQHckdI0nABv6nKgR7iqmcsFoT.4mLyGZOLwBAVE0Dsd4yfV6Vcimd68h2emhhL0wc2N9u9gJ37X1YINaqD7joexlG_P6, https://cxp--preprod.sandbox.my.salesforce.com
+        [2024-12-02 17:24:26 :1415719] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.cxp.CxpApiService.createOppty:488] - request : {"allOrNone": true,
+            "collateSubrequests": false,
+            "compositeRequest": [
+                {
+                    "method": "GET",
+                    "url": "/services/data/v56.0/query/?q=SELECT Id, Name, DeveloperName, SobjectType, IsPersonType, IsActive FROM RecordType WHERE SobjectType = 'Opportunity' AND DeveloperName = 'Sales_Process_with_RDA'",
+                    "referenceId": "refOpptyRecordType"
+                },
+                {
+                    "method": "GET",
+                    "url": "/services/data/v56.0/query/?q=SELECT Id, Name, NameLocal FROM Account WHERE RecordType.Name = 'Retailer' AND Record_Sub_Type__c = 'Dual Brand' AND Country_ISO_Code__c = 'KR' AND DMS_Identifier__c = 'B54'",
+                    "referenceId": "refRetailer"
+                },
+                {
+                    "method": "GET",
+                    "url": "/services/data/v56.0/query/?q=SELECT Id, LastName, OwnerId, Dealer_CI_Code_2__c FROM Account  WHERE LastName = '한지연_테스트2' AND PersonMobilePhone = '01021263835' AND RecordType.DeveloperName = 'Individual' and Preferred_Sales_Retailer__c = '@{refRetailer.records[0].Id}'",
+                    "referenceId": "refAccount"
+                },
+                {
+                    "method": "GET",
+                    "url": "/services/data/v56.0/query/?q=SELECT Id, Name, Not_Sold_Market_List__c, Make__c FROM Vehicle_Specification__c WHERE RecordType.DeveloperName = 'Model' AND Is_Korea__c = true AND Is_Currently_Sold__c = true AND Not_Sold_In__c EXCLUDES('KR') AND Name = 'New Range Rover'",
+                    "referenceId": "refInterestedModel"
+                },
+                {
+                    "method": "GET",
+                    "url": "/services/data/v56.0/query/?q=SELECT Id, Name FROM Pricebook2 WHERE Name = 'Korea, Republic of'",
+                    "referenceId": "refPriceBook"
+                },
+        
+                {
+                    "method": "POST",
+                    "url": "/services/data/v56.0/sobjects/Opportunity/",
+                    "referenceId": "refOppty",
+                    "body": {
+                        "AccountId":"@{refAccount.records[0].Id}",
+                        "Name": "[GUESTBOOK]@{refAccount.records[0].LastName}-@{refInterestedModel.records[0].Name}",
+                        "StageName": "Negotiation & Approval",
+                        "CloseDate": "2025-03-02",
+                        "Description": null,
+                        "Country_ISO_Code__c": "KR",
+                        "CurrencyIsoCode": "KRW",
+                        "RecordTypeId": "@{refOpptyRecordType.records[0].Id}",
+                        "Purchase_Type__c": "New Vehicle",
+                        <span class="highlight">"LeadSource":"Social(Retailer)",</span>
+                        "Brand__c": "@{refInterestedModel.records[0].Make__c}",
+                        "Primary_Model_Interest__c": "@{refInterestedModel.records[0].Id}",
+                        "Pricebook2Id": "@{refPriceBook.records[0].Id}",
+                        "Deposit_Status__c": "Created",
+                        "Date_of_Deposit__c": "2024-12-02",
+                        "Expected_Date_Of_Purchase_Hidden__c": "2025-03-02",
+                        "Alternate_Name_of_Depositor__c": null,
+                        "Deposit_Reservation_Amount__c": null,
+                        "Local_deposit_amount__c": null,
+                        "OwnerId": "@{refAccount.records[0].OwnerId}",
+                        "Sale_Type__c": "New",
+                        "Dealer_CI_Code_2__c": "@{refAccount.records[0].Dealer_CI_Code_2__c}"
+                    }
+                }
+            ]}
+        [2024-12-02 17:24:33 :1422964] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.cxp.CxpApiService.createOppty:490] - response : CxpResponse(compositeResponse=[{body={totalSize=1, done=true, records=[{attributes={type=RecordType, url=/services/data/v56.0/sobjects/RecordType/0121o000000LbjbAAC}, Id=0121o000000LbjbAAC, Name=Sales Process with RDA, DeveloperName=Sales_Process_with_RDA, SobjectType=Opportunity, IsPersonType=false, IsActive=true}]}, httpHeaders={}, httpStatusCode=200, referenceId=refOpptyRecordType}, {body={totalSize=1, done=true, records=[{attributes={type=Account, url=/services/data/v56.0/sobjects/Account/0017U000005t7M7QAI}, Id=0017U000005t7M7QAI, Name=Aju Networks - Mokdong - 01080 - 01080, NameLocal=목동 전시장}]}, httpHeaders={}, httpStatusCode=200, referenceId=refRetailer}, {body={totalSize=1, done=true, records=[{attributes={type=Account, url=/services/data/v56.0/sobjects/Account/001Vc00000AxzU5IAJ}, Id=001Vc00000AxzU5IAJ, LastName=한지연_테스트2, OwnerId=0057U0000011QlDQAU, Dealer_CI_Code_2__c=01080}]}, httpHeaders={}, httpStatusCode=200, referenceId=refAccount}, {body={totalSize=1, done=true, records=[{attributes={type=Vehicle_Specification__c, url=/services/data/v56.0/sobjects/Vehicle_Specification__c/a0Z24000007bM6JEAU}, Id=a0Z24000007bM6JEAU, Name=New Range Rover, Not_Sold_Market_List__c=null, Make__c=a0Z24000007bJHYEA2}]}, httpHeaders={}, httpStatusCode=200, referenceId=refInterestedModel}, {body={totalSize=1, done=true, records=[{attributes={type=Pricebook2, url=/services/data/v56.0/sobjects/Pricebook2/01s7U000000TXxHQAW}, Id=01s7U000000TXxHQAW, Name=Korea, Republic of}]}, httpHeaders={}, httpStatusCode=200, referenceId=refPriceBook}, {body={id=006Vc000008SByPIAW, success=true, errors=[]}, httpHeaders={Location=/services/data/v56.0/sobjects/Opportunity/006Vc000008SByPIAW}, httpStatusCode=201, referenceId=refOppty}])
+        [2024-12-02 17:24:33 :1422966] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.service.GuestBookBatchService.processCxpCreate:314] - createOppty Success : cxpState => 3, cxpAccountId => 001Vc00000AxzU5IAJ
+        [2024-12-02 17:24:33 :1422970] [scheduling-1] [39mDEBUG[0;39m [org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug:137] - ==>  Preparing: UPDATE cxp_board SET batchYn = ?, batchCnt = batchCnt + 1, batchDate = now(), cxpState = ?, cxpAccountId = ?, cxpResultMsg = ?, cxpErrorMsg = ? WHERE cxpBoardSeq = ?
+        [2024-12-02 17:24:33 :1422971] [scheduling-1] [39mDEBUG[0;39m [org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug:137] - ==> Parameters: Y(String), 3(Integer), 001Vc00000AxzU5IAJ(String), , createLead : {code :200, id :001Vc00000AxzU5IAJ}, changeAccountOwner : {code :204, id :001Vc00000AxzU5IAJ}, createOppty : {code :201, id :001Vc00000AxzU5IAJ}(String), null, 260(Integer)
+        [2024-12-02 17:24:33 :1423037] [scheduling-1] [39mDEBUG[0;39m [org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug:137] - <==    Updates: 1
+    </pre>
+    <br>
+    <hr>
+    <h1>2. 기존 고객 - Account Owner 변경</h1>
+    <ul>
+        <li>고객 생성 - Lead Source 삭제</li>
+        <li>영업 기회 생성 - Lead Source 추가 <code>"LeadSource":"Social(Retailer)"</code></li>
+    </ul>
+    <h2>2-1. 고객 생성</h2>
+    <pre>
+        [2024-12-02 17:26:33 :1543192] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.service.GuestBookBatchService.runGuestbookJob:38] - Guestbook Batch Job started -
+[2024-12-02 17:26:33 :1543195] [scheduling-1] [39mDEBUG[0;39m [org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug:137] - ==>  Preparing: SELECT b.cxpBoardSeq, b.smcxpCode, b.scId, b.scName, b.dealerCode, b.isAgree, b.personalAgreeSeq, b.NAME, b.mobile, b.sex, b.email, b.birth, b.zipcode, b.addr1, b.addr2, b.faveBrandCode, b.faveModelCode, m.modelName, b.ownBrandCode, b.visitPath, b.memo, b.creDate, b.cxpState, b.cxpAccountId, b.cxpOwnerId, b.cxpAccountState, b.cxpResultMsg, b.cxpErrorMsg, b.batchYn, b.batchCnt, b.batchDate, p.agree1, p.agree2, p.agree3, p.agree4 FROM cxp_board b JOIN cxp_personal_agree p ON b.personalAgreeSeq = p.personalAgreeSeq JOIN cxp_model m ON b.faveModelCode = m.cxpModelCode WHERE batchYn='N' AND batchCnt < 3
+[2024-12-02 17:26:33 :1543196] [scheduling-1] [39mDEBUG[0;39m [org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug:137] - ==> Parameters: 
+[2024-12-02 17:26:33 :1543202] [scheduling-1] [39mDEBUG[0;39m [org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug:137] - <==      Total: 1
+[2024-12-02 17:26:33 :1543204] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.cxp.CxpApiService.getAccessToken:54] - getAccessToken() - Bearer 00D5E000000A5jw!AQEAQHckdI0nABv6nKgR7iqmcsFoT.4mLyGZOLwBAVE0Dsd4yfV6Vcimd68h2emhhL0wc2N9u9gJ37X1YINaqD7joexlG_P6, https://cxp--preprod.sandbox.my.salesforce.com
+[2024-12-02 17:26:33 :1543204] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.service.GuestBookBatchService.runGuestbookJob:52] - cxpBoardSeq : 261
+[2024-12-02 17:26:33 :1543205] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.service.GuestBookBatchService.processCxpCreate:114] - cxpBoardSeq : 261, state: 0, cxpAccountId: 001Vc00000AxzU5IAJ
+[2024-12-02 17:26:33 :1543205] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.service.GuestBookBatchService.processCxpCreate:115] - map= {cxpBoardSeq=261, smCxpCode=B54, scName=박진우, dealerName=null, dealerCode=DS1301, name=한지연_테스트2, mobile=01021263835, isAgree=Y, personalAgreeSeq=1484, sex=2, email=test@gmail.com, birth=null, zipcode=null, addr1=, addr2=, faveBrandCode=a0Z24000007bJHYEA2, faveModelCode=a0Z24000007bM6JEAU, modelName=New Range Rover, ownBrandCode=, visitPath=Social(Retailer), memo=, creDate=2024-12-02, cxpState=0, cxpAccountId=001Vc00000AxzU5IAJ, cxpAccountState=U, cxpOwnerId=0057U0000011QlKQAU, batchYn=N, batchCnt=0, cxpResultMsg=null, cxpErrorMsg=null, agree1=true, agree2=true, agree3=true, agree4=false, serviceType=GUESTBOOK, city=null, addr=null, gender=Female}
+[2024-12-02 17:26:33 :1543206] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.service.GuestBookBatchService.processCxpCreate:118] - cxpAccountId=>false
+[2024-12-02 17:26:33 :1543206] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.service.GuestBookBatchService.processCxpCreate:185] - 1. createLead - Changed Account Owner
+[2024-12-02 17:26:33 :1543206] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.cxp.CxpApiService.getAccessToken:54] - getAccessToken() - Bearer 00D5E000000A5jw!AQEAQHckdI0nABv6nKgR7iqmcsFoT.4mLyGZOLwBAVE0Dsd4yfV6Vcimd68h2emhhL0wc2N9u9gJ37X1YINaqD7joexlG_P6, https://cxp--preprod.sandbox.my.salesforce.com
+[2024-12-02 17:26:33 :1543207] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.cxp.CxpApiService.createLead2:260] - createLead() - 
+[2024-12-02 17:26:33 :1543207] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.cxp.CxpApiService.createLead2:394] - request : {
+    "allOrNone": true,
+    "collateSubrequests": false,
+    "compositeRequest": [
+        {
+            "method": "GET",
+            "url": "/services/data/v56.0/query/?q=SELECT id, DeveloperName FROM RecordType WHERE SobjectType  = 'Account' AND DeveloperName  = 'Individual'",
+            "referenceId": "refRecordType"
+        },
+        {
+            "method": "GET",
+            "url": "/services/data/v56.0/query/?q=SELECT id, DeveloperName FROM RecordType WHERE SobjectType='Account' AND DeveloperName='Individual_Golden_Record'",
+            "referenceId": "refRecordTypeJlrPrimary"
+        },
+        {
+            "method": "GET",
+            "url": "/services/data/v56.0/query/?q=SELECT Id, Dealer_CI_Code__c, Dealer_CI_Code_2__c FROM Account WHERE DMS_Identifier__c = 'B54' AND Record_Sub_Type__c = 'Dual Brand' AND Country_ISO_Code__c = 'KR' AND Retailer_Status__c = 'Trading'",
+            "referenceId": "refShowroom"
+        },
+		{
+            "method": "GET",
+            "url": "/services/data/v56.0/query/?q=SELECT Id FROM user where name = 'Owner (KR) Retailer'",
+            "referenceId": "refPrimaryOwner"
+        },
+        {
+            "method": "PATCH",
+            "url": "/services/data/v56.0/sobjects/Account/External_ID_SF_KR__c/KR-한지연_테스트2-01021263835-IndJLRPirmary",
+            "referenceId": "refUpsertAccount_JLRPrimary",
+            "body": {
+                "LastName": "한지연_테스트2",
+                "PersonMobilePhone": "01021263835",
+                "PersonEmail": "test@gmail.com",
+                "RecordTypeId": "@{refRecordTypeJlrPrimary.records[0].Id}",
+                "OwnerId": "@{refPrimaryOwner.records[0].Id}",
+                "BillingCountry": "Korea",
+                "BillingCity" : null,
+                "BillingStreet": null,
+                "BillingPostalCode":null,
+                "PersonMailingCountry": "Korea",
+                "PersonMailingCity" : null,
+                "PersonMailingStreet": null,
+                "PersonMailingPostalCode":null,
+                "Gender__pc": "Female",
+                "PersonBirthdate": null,
+                "Brand__c": null, 
+                "PersonHasOptedOutOfEmail": false,
+                "et4ae5__HasOptedOutOfMobile__pc": false,
+				"PersonDoNotCall": false,
+                "Language__pc": "Korean",
+                "Country_ISO_Code__c": "KR",
+                "Select_Country_ISO_Code__c": "KR",
+				"Personal_Information_Consent__c": true,
+				"Personal_Information_Consent_date__c": "2024-12-02",
+				"Personal_Information_Third_Party_Consent__c": true,
+				"Personal_Information_TP_Consent_date__c": "2024-12-02",
+				"Personal_Information_Transfer_Consent__c": true,
+				"Personal_Information_TC_date__c": "2024-12-02",
+				"Personal_Information_Publicity_Promotion__c": false,
+				"Personal_Information_PP_Consent_date__c": null
+            }
+        },
+        {
+            "method": "PATCH",
+            "url": "/services/data/v56.0/sobjects/Account/External_ID_SF_KR__c/KR-한지연_테스트2-01021263835-@{refShowroom.records[0].Id}",
+            "referenceId": "refUpsertAccount",
+            "body": {
+                "LastName": "한지연_테스트2",
+                "PersonMobilePhone": "01021263835",
+                "PersonEmail": "test@gmail.com",
+                "RecordTypeId": "@{refRecordType.records[0].Id}",
+                "BillingCountry": "Korea",
+                "BillingCity" : null,
+                "BillingStreet": null,
+                "BillingPostalCode":null,
+                "PersonMailingCountry": "Korea",
+                "PersonMailingCity" : null,
+                "PersonMailingStreet": null,
+                "PersonMailingPostalCode":null,
+                "Gender__pc": "Female",
+                "PersonBirthdate": null,
+                "Brand__c": null, 
+                "PersonHasOptedOutOfEmail": false,
+                "et4ae5__HasOptedOutOfMobile__pc": false,
+				"PersonDoNotCall": false,
+                "Language__pc": "Korean",
+                "Country_ISO_Code__c": "KR",
+                "Select_Country_ISO_Code__c": "KR",
+				"Personal_Information_Consent__c": true,
+				"Personal_Information_Consent_date__c": "2024-12-02",
+				"Personal_Information_Third_Party_Consent__c": true,
+				"Personal_Information_TP_Consent_date__c": "2024-12-02",
+				"Personal_Information_Transfer_Consent__c": true,
+				"Personal_Information_TC_date__c": "2024-12-02",
+				"Personal_Information_Publicity_Promotion__c": false,
+				"Personal_Information_PP_Consent_date__c": null,
+                "Preferred_Sales_Retailer__c": "@{refShowroom.records[0].Id}",
+                "Primary_Account__c": "@{refUpsertAccount_JLRPrimary.id}",
+				"Is_Primary__c":"false", 
+				"Dealer_CI_Code__c":"@{refShowroom.records[0].Dealer_CI_Code__c}", 
+				"Dealer_CI_Code_2__c":"@{refShowroom.records[0].Dealer_CI_Code_2__c}", 
+				"Owner_Retailer__c": "@{refShowroom.records[0].Id}" 
+            }
+        },
+        {
+            "method": "GET",
+            "url": "/services/data/v56.0/query/?q=SELECT Id, OwnerId FROM Account WHERE Id = '@{refUpsertAccount.id}'",
+            "referenceId": "refCustomer"
+        }
+]}
+    </pre>
+
+    <h2>2-2. Account Owner 변경</h2>
+    <pre>
+        [2024-12-02 17:26:37 :1547394] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.cxp.CxpApiService.createLead2:396] - response : CxpResponse(compositeResponse=[{body={totalSize=1, done=true, records=[{attributes={type=RecordType, url=/services/data/v56.0/sobjects/RecordType/01224000000TXPcAAO}, Id=01224000000TXPcAAO, DeveloperName=Individual}]}, httpHeaders={}, httpStatusCode=200, referenceId=refRecordType}, {body={totalSize=1, done=true, records=[{attributes={type=RecordType, url=/services/data/v56.0/sobjects/RecordType/0121o000000TjjTAAS}, Id=0121o000000TjjTAAS, DeveloperName=Individual_Golden_Record}]}, httpHeaders={}, httpStatusCode=200, referenceId=refRecordTypeJlrPrimary}, {body={totalSize=1, done=true, records=[{attributes={type=Account, url=/services/data/v56.0/sobjects/Account/0017U000005t7M7QAI}, Id=0017U000005t7M7QAI, Dealer_CI_Code__c=01080, Dealer_CI_Code_2__c=01080}]}, httpHeaders={}, httpStatusCode=200, referenceId=refShowroom}, {body={totalSize=1, done=true, records=[{attributes={type=User, url=/services/data/v56.0/sobjects/User/0057U000000uV0oQAE}, Id=0057U000000uV0oQAE}]}, httpHeaders={}, httpStatusCode=200, referenceId=refPrimaryOwner}, {body={id=001Vc00000AxzU4IAJ, success=true, errors=[], created=false}, httpHeaders={Location=/services/data/v56.0/sobjects/Account/001Vc00000AxzU4IAJ}, httpStatusCode=200, referenceId=refUpsertAccount_JLRPrimary}, {body={id=001Vc00000AxzU5IAJ, success=true, errors=[], created=false}, httpHeaders={Location=/services/data/v56.0/sobjects/Account/001Vc00000AxzU5IAJ}, httpStatusCode=200, referenceId=refUpsertAccount}, {body={totalSize=1, done=true, records=[{attributes={type=Account, url=/services/data/v56.0/sobjects/Account/001Vc00000AxzU5IAJ}, Id=001Vc00000AxzU5IAJ, OwnerId=0057U0000011QlDQAU}]}, httpHeaders={}, httpStatusCode=200, referenceId=refCustomer}])
+        [2024-12-02 17:26:37 :1547396] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.service.GuestBookBatchService.processCxpCreate:210] - createLead Success : cxpState => 1, cxpAccountId => 001Vc00000AxzU5IAJ
+        [2024-12-02 17:26:37 :1547396] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.service.GuestBookBatchService.processCxpCreate:265] - 2. changeAccountOwner - Changed Account Owner
+        [2024-12-02 17:26:37 :1547397] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.cxp.CxpApiService.getAccessToken:54] - getAccessToken() - Bearer 00D5E000000A5jw!AQEAQHckdI0nABv6nKgR7iqmcsFoT.4mLyGZOLwBAVE0Dsd4yfV6Vcimd68h2emhhL0wc2N9u9gJ37X1YINaqD7joexlG_P6, https://cxp--preprod.sandbox.my.salesforce.com
+        [2024-12-02 17:26:37 :1547397] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.cxp.CxpApiService.changeAccountOwner:573] - request : {
+            "allOrNone": true,
+            "collateSubrequests": false,
+            "compositeRequest": [
+                {
+                    "method": "PATCH",
+                    "url": "/services/data/v56.0/sobjects/Account/001Vc00000AxzU5IAJ",
+                    "referenceId": "refUpdateAccount",
+                    "body": {
+                        "OwnerId" : "0057U0000011QlKQAU"
+                    }
+                }
+            ]
+        }
+    </pre>
+
+    <h2>2-3. 영업 기회 생성</h2>
+    <pre>
+        [2024-12-02 17:26:42 :1552164] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.cxp.CxpApiService.changeAccountOwner:575] - response : CxpResponse(compositeResponse=[{body=null, httpHeaders={}, httpStatusCode=204, referenceId=refUpdateAccount}])
+        [2024-12-02 17:26:42 :1552165] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.service.GuestBookBatchService.processCxpCreate:279] - changeAccountOwner Success cxpState => 2, cxpAccountId => 001Vc00000AxzU5IAJ
+        [2024-12-02 17:26:42 :1552165] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.service.GuestBookBatchService.processCxpCreate:320] - 3. createOppty - Changed Account Owner
+        [2024-12-02 17:26:42 :1552165] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.cxp.CxpApiService.createOppty:418] - createOppty() -
+        [2024-12-02 17:26:42 :1552165] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.cxp.CxpApiService.getAccessToken:54] - getAccessToken() - Bearer 00D5E000000A5jw!AQEAQHckdI0nABv6nKgR7iqmcsFoT.4mLyGZOLwBAVE0Dsd4yfV6Vcimd68h2emhhL0wc2N9u9gJ37X1YINaqD7joexlG_P6, https://cxp--preprod.sandbox.my.salesforce.com
+        [2024-12-02 17:26:42 :1552166] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.cxp.CxpApiService.createOppty:488] - request : {"allOrNone": true,
+            "collateSubrequests": false,
+            "compositeRequest": [
+                {
+                    "method": "GET",
+                    "url": "/services/data/v56.0/query/?q=SELECT Id, Name, DeveloperName, SobjectType, IsPersonType, IsActive FROM RecordType WHERE SobjectType = 'Opportunity' AND DeveloperName = 'Sales_Process_with_RDA'",
+                    "referenceId": "refOpptyRecordType"
+                },
+                {
+                    "method": "GET",
+                    "url": "/services/data/v56.0/query/?q=SELECT Id, Name, NameLocal FROM Account WHERE RecordType.Name = 'Retailer' AND Record_Sub_Type__c = 'Dual Brand' AND Country_ISO_Code__c = 'KR' AND DMS_Identifier__c = 'B54'",
+                    "referenceId": "refRetailer"
+                },
+                {
+                    "method": "GET",
+                    "url": "/services/data/v56.0/query/?q=SELECT Id, LastName, OwnerId, Dealer_CI_Code_2__c FROM Account  WHERE LastName = '한지연_테스트2' AND PersonMobilePhone = '01021263835' AND RecordType.DeveloperName = 'Individual' and Preferred_Sales_Retailer__c = '@{refRetailer.records[0].Id}'",
+                    "referenceId": "refAccount"
+                },
+                {
+                    "method": "GET",
+                    "url": "/services/data/v56.0/query/?q=SELECT Id, Name, Not_Sold_Market_List__c, Make__c FROM Vehicle_Specification__c WHERE RecordType.DeveloperName = 'Model' AND Is_Korea__c = true AND Is_Currently_Sold__c = true AND Not_Sold_In__c EXCLUDES('KR') AND Name = 'New Range Rover'",
+                    "referenceId": "refInterestedModel"
+                },
+                {
+                    "method": "GET",
+                    "url": "/services/data/v56.0/query/?q=SELECT Id, Name FROM Pricebook2 WHERE Name = 'Korea, Republic of'",
+                    "referenceId": "refPriceBook"
+                },
+        
+                {
+                    "method": "POST",
+                    "url": "/services/data/v56.0/sobjects/Opportunity/",
+                    "referenceId": "refOppty",
+                    "body": {
+                        "AccountId":"@{refAccount.records[0].Id}",
+                        "Name": "[GUESTBOOK]@{refAccount.records[0].LastName}-@{refInterestedModel.records[0].Name}",
+                        "StageName": "Negotiation & Approval",
+                        "CloseDate": "2025-03-02",
+                        "Description": null,
+                        "Country_ISO_Code__c": "KR",
+                        "CurrencyIsoCode": "KRW",
+                        "RecordTypeId": "@{refOpptyRecordType.records[0].Id}",
+                        "Purchase_Type__c": "New Vehicle",
+                        <span class="highlight">"LeadSource":"Social(Retailer)",</span>
+                        "Brand__c": "@{refInterestedModel.records[0].Make__c}",
+                        "Primary_Model_Interest__c": "@{refInterestedModel.records[0].Id}",
+                        "Pricebook2Id": "@{refPriceBook.records[0].Id}",
+                        "Deposit_Status__c": "Created",
+                        "Date_of_Deposit__c": "2024-12-02",
+                        "Expected_Date_Of_Purchase_Hidden__c": "2025-03-02",
+                        "Alternate_Name_of_Depositor__c": null,
+                        "Deposit_Reservation_Amount__c": null,
+                        "Local_deposit_amount__c": null,
+                        "OwnerId": "@{refAccount.records[0].OwnerId}",
+                        "Sale_Type__c": "New",
+                        "Dealer_CI_Code_2__c": "@{refAccount.records[0].Dealer_CI_Code_2__c}"
+                    }
+                }
+            ]}
+        [2024-12-02 17:26:49 :1559077] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.cxp.CxpApiService.createOppty:490] - response : CxpResponse(compositeResponse=[{body={totalSize=1, done=true, records=[{attributes={type=RecordType, url=/services/data/v56.0/sobjects/RecordType/0121o000000LbjbAAC}, Id=0121o000000LbjbAAC, Name=Sales Process with RDA, DeveloperName=Sales_Process_with_RDA, SobjectType=Opportunity, IsPersonType=false, IsActive=true}]}, httpHeaders={}, httpStatusCode=200, referenceId=refOpptyRecordType}, {body={totalSize=1, done=true, records=[{attributes={type=Account, url=/services/data/v56.0/sobjects/Account/0017U000005t7M7QAI}, Id=0017U000005t7M7QAI, Name=Aju Networks - Mokdong - 01080 - 01080, NameLocal=목동 전시장}]}, httpHeaders={}, httpStatusCode=200, referenceId=refRetailer}, {body={totalSize=1, done=true, records=[{attributes={type=Account, url=/services/data/v56.0/sobjects/Account/001Vc00000AxzU5IAJ}, Id=001Vc00000AxzU5IAJ, LastName=한지연_테스트2, OwnerId=0057U0000011QlKQAU, Dealer_CI_Code_2__c=01080}]}, httpHeaders={}, httpStatusCode=200, referenceId=refAccount}, {body={totalSize=1, done=true, records=[{attributes={type=Vehicle_Specification__c, url=/services/data/v56.0/sobjects/Vehicle_Specification__c/a0Z24000007bM6JEAU}, Id=a0Z24000007bM6JEAU, Name=New Range Rover, Not_Sold_Market_List__c=null, Make__c=a0Z24000007bJHYEA2}]}, httpHeaders={}, httpStatusCode=200, referenceId=refInterestedModel}, {body={totalSize=1, done=true, records=[{attributes={type=Pricebook2, url=/services/data/v56.0/sobjects/Pricebook2/01s7U000000TXxHQAW}, Id=01s7U000000TXxHQAW, Name=Korea, Republic of}]}, httpHeaders={}, httpStatusCode=200, referenceId=refPriceBook}, {body={id=006Vc000008SC6TIAW, success=true, errors=[]}, httpHeaders={Location=/services/data/v56.0/sobjects/Opportunity/006Vc000008SC6TIAW}, httpStatusCode=201, referenceId=refOppty}])
+        [2024-12-02 17:26:49 :1559079] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.service.GuestBookBatchService.processCxpCreate:340] - createOppty Success : cxpState => 3, cxpAccountId => 001Vc00000AxzU5IAJ
+        [2024-12-02 17:26:49 :1559082] [scheduling-1] [39mDEBUG[0;39m [org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug:137] - ==>  Preparing: UPDATE cxp_board SET batchYn = ?, batchCnt = batchCnt + 1, batchDate = now(), cxpState = ?, cxpResultMsg = ?, cxpErrorMsg = ? WHERE cxpBoardSeq = ?
+        [2024-12-02 17:26:49 :1559083] [scheduling-1] [39mDEBUG[0;39m [org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug:137] - ==> Parameters: Y(String), 3(Integer), , createLead : {code :200, id :001Vc00000AxzU5IAJ}, changeAccountOwner : {code :204, id :001Vc00000AxzU5IAJ}, createOopty : {code :201, id :001Vc00000AxzU5IAJ}(String), null, 261(Integer)
+        [2024-12-02 17:26:49 :1559131] [scheduling-1] [39mDEBUG[0;39m [org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug:137] - <==    Updates: 1
+        [2024-12-02 17:26:49 :1559132] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.service.GuestBookBatchService.runGuestbookJob:87] - updateBatchResult - cxpBoardSeq : 261, , createLead : {code :200, id :001Vc00000AxzU5IAJ}, changeAccountOwner : {code :204, id :001Vc00000AxzU5IAJ}, createOopty : {code :201, id :001Vc00000AxzU5IAJ}, updated : 1
+        [2024-12-02 17:26:49 :1559132] [scheduling-1] [34mINFO [0;39m [com.jlrk.web.service.BatchScheduleService.runJob:25] - Batch job completed successfully at => 2024-12-02T17:26:49.625423
+    </pre>
+    <br>
+    <hr>
+    <h1>3. 기존 고객 - Account Owner 변경 안함</h1>
+    <ul>
+        <li>고객 생성 - Lead Source 삭제</li>
+        <li>영업 기회 생성 - Lead Source 추가 <code>"LeadSource":"OEM Experience"</code></li>
+    </ul>
+    <h2>3-1. 고객 생성</h2>
+    <pre>
+        [2024-12-02 17:02:56 :125936] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.service.GuestBookBatchService.runGuestbookJob:38] - Guestbook Batch Job started -
+        [2024-12-02 17:02:56 :125939] [scheduling-1] [39mDEBUG[0;39m [org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug:137] - ==>  Preparing: SELECT b.cxpBoardSeq, b.smcxpCode, b.scId, b.scName, b.dealerCode, b.isAgree, b.personalAgreeSeq, b.NAME, b.mobile, b.sex, b.email, b.birth, b.zipcode, b.addr1, b.addr2, b.faveBrandCode, b.faveModelCode, m.modelName, b.ownBrandCode, b.visitPath, b.memo, b.creDate, b.cxpState, b.cxpAccountId, b.cxpOwnerId, b.cxpAccountState, b.cxpResultMsg, b.cxpErrorMsg, b.batchYn, b.batchCnt, b.batchDate, p.agree1, p.agree2, p.agree3, p.agree4 FROM cxp_board b JOIN cxp_personal_agree p ON b.personalAgreeSeq = p.personalAgreeSeq JOIN cxp_model m ON b.faveModelCode = m.cxpModelCode WHERE batchYn='N' AND batchCnt < 3
+        [2024-12-02 17:02:56 :125940] [scheduling-1] [39mDEBUG[0;39m [org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug:137] - ==> Parameters: 
+        [2024-12-02 17:02:56 :125962] [scheduling-1] [39mDEBUG[0;39m [org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug:137] - <==      Total: 1
+        [2024-12-02 17:02:56 :125973] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.cxp.CxpApiService.getAccessToken:54] - getAccessToken() - null, https://cxp--preprod.sandbox.my.salesforce.com
+        [2024-12-02 17:02:56 :125974] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.cxp.CxpApiService.getRefreshToken:66] - getRefreshToken() - https://cxp--preprod.sandbox.my.salesforce.com
+        [2024-12-02 17:02:58 :127639] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.cxp.CxpApiService.getRefreshToken:82] - getRefreshToken() - Bearer 00D5E000000A5jw!AQEAQHckdI0nABv6nKgR7iqmcsFoT.4mLyGZOLwBAVE0Dsd4yfV6Vcimd68h2emhhL0wc2N9u9gJ37X1YINaqD7joexlG_P6
+        [2024-12-02 17:02:58 :127640] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.service.GuestBookBatchService.runGuestbookJob:52] - cxpBoardSeq : 259
+        [2024-12-02 17:02:58 :127714] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.service.GuestBookBatchService.processCxpCreate:114] - cxpBoardSeq : 259, state: 0, cxpAccountId: 001Vc000009YRwhIAG
+        [2024-12-02 17:02:58 :127715] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.service.GuestBookBatchService.processCxpCreate:115] - map= {cxpBoardSeq=259, smCxpCode=B54, scName=강명석, dealerName=null, dealerCode=DS1301, name=한지연_테스트, mobile=01021263835, isAgree=Y, personalAgreeSeq=1483, sex=2, email=test@gmail.com, birth=1992-01-01, zipcode=null, addr1=, addr2=, faveBrandCode=a0Z24000007bJHYEA2, faveModelCode=a0Z24000007bM6JEAU, modelName=New Range Rover, ownBrandCode=, visitPath=OEM Experience, memo=, creDate=2024-12-02, cxpState=0, cxpAccountId=001Vc000009YRwhIAG, cxpAccountState=O, cxpOwnerId=0057U0000011QlDQAU, batchYn=N, batchCnt=0, cxpResultMsg=null, cxpErrorMsg=null, agree1=true, agree2=true, agree3=true, agree4=false, serviceType=GUESTBOOK, city=null, addr=null, gender=Female}
+        [2024-12-02 17:02:58 :127716] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.service.GuestBookBatchService.processCxpCreate:118] - cxpAccountId=>false
+        [2024-12-02 17:02:58 :127716] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.service.GuestBookBatchService.processCxpCreate:154] - 1. createLead - Unchanged Account Owner
+        [2024-12-02 17:02:58 :127717] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.cxp.CxpApiService.getAccessToken:54] - getAccessToken() - Bearer 00D5E000000A5jw!AQEAQHckdI0nABv6nKgR7iqmcsFoT.4mLyGZOLwBAVE0Dsd4yfV6Vcimd68h2emhhL0wc2N9u9gJ37X1YINaqD7joexlG_P6, https://cxp--preprod.sandbox.my.salesforce.com
+        [2024-12-02 17:02:58 :127717] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.cxp.CxpApiService.createLead2:260] - createLead() - 
+        [2024-12-02 17:02:58 :127868] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.cxp.CxpApiService.createLead2:394] - request : {
+            "allOrNone": true,
+            "collateSubrequests": false,
+            "compositeRequest": [
+                {
+                    "method": "GET",
+                    "url": "/services/data/v56.0/query/?q=SELECT id, DeveloperName FROM RecordType WHERE SobjectType  = 'Account' AND DeveloperName  = 'Individual'",
+                    "referenceId": "refRecordType"
+                },
+                {
+                    "method": "GET",
+                    "url": "/services/data/v56.0/query/?q=SELECT id, DeveloperName FROM RecordType WHERE SobjectType='Account' AND DeveloperName='Individual_Golden_Record'",
+                    "referenceId": "refRecordTypeJlrPrimary"
+                },
+                {
+                    "method": "GET",
+                    "url": "/services/data/v56.0/query/?q=SELECT Id, Dealer_CI_Code__c, Dealer_CI_Code_2__c FROM Account WHERE DMS_Identifier__c = 'B54' AND Record_Sub_Type__c = 'Dual Brand' AND Country_ISO_Code__c = 'KR' AND Retailer_Status__c = 'Trading'",
+                    "referenceId": "refShowroom"
+                },
+                {
+                    "method": "GET",
+                    "url": "/services/data/v56.0/query/?q=SELECT Id FROM user where name = 'Owner (KR) Retailer'",
+                    "referenceId": "refPrimaryOwner"
+                },
+                {
+                    "method": "PATCH",
+                    "url": "/services/data/v56.0/sobjects/Account/External_ID_SF_KR__c/KR-한지연_테스트-01021263835-IndJLRPirmary",
+                    "referenceId": "refUpsertAccount_JLRPrimary",
+                    "body": {
+                        "LastName": "한지연_테스트",
+                        "PersonMobilePhone": "01021263835",
+                        "PersonEmail": "test@gmail.com",
+                        "RecordTypeId": "@{refRecordTypeJlrPrimary.records[0].Id}",
+                        "OwnerId": "@{refPrimaryOwner.records[0].Id}",
+                        "BillingCountry": "Korea",
+                        "BillingCity" : null,
+                        "BillingStreet": null,
+                        "BillingPostalCode":null,
+                        "PersonMailingCountry": "Korea",
+                        "PersonMailingCity" : null,
+                        "PersonMailingStreet": null,
+                        "PersonMailingPostalCode":null,
+                        "Gender__pc": "Female",
+                        "PersonBirthdate": "1992-01-01",
+                        "Brand__c": null, 
+                        "PersonHasOptedOutOfEmail": false,
+                        "et4ae5__HasOptedOutOfMobile__pc": false,
+                        "PersonDoNotCall": false,
+                        "Language__pc": "Korean",
+                        "Country_ISO_Code__c": "KR",
+                        "Select_Country_ISO_Code__c": "KR",
+                        "Personal_Information_Consent__c": true,
+                        "Personal_Information_Consent_date__c": "2024-12-02",
+                        "Personal_Information_Third_Party_Consent__c": true,
+                        "Personal_Information_TP_Consent_date__c": "2024-12-02",
+                        "Personal_Information_Transfer_Consent__c": true,
+                        "Personal_Information_TC_date__c": "2024-12-02",
+                        "Personal_Information_Publicity_Promotion__c": false,
+                        "Personal_Information_PP_Consent_date__c": null
+                    }
+                },
+                {
+                    "method": "PATCH",
+                    "url": "/services/data/v56.0/sobjects/Account/External_ID_SF_KR__c/KR-한지연_테스트-01021263835-@{refShowroom.records[0].Id}",
+                    "referenceId": "refUpsertAccount",
+                    "body": {
+                        "LastName": "한지연_테스트",
+                        "PersonMobilePhone": "01021263835",
+                        "PersonEmail": "test@gmail.com",
+                        "RecordTypeId": "@{refRecordType.records[0].Id}",
+                        "BillingCountry": "Korea",
+                        "BillingCity" : null,
+                        "BillingStreet": null,
+                        "BillingPostalCode":null,
+                        "PersonMailingCountry": "Korea",
+                        "PersonMailingCity" : null,
+                        "PersonMailingStreet": null,
+                        "PersonMailingPostalCode":null,
+                        "Gender__pc": "Female",
+                        "PersonBirthdate": "1992-01-01",
+                        "Brand__c": null, 
+                        "PersonHasOptedOutOfEmail": false,
+                        "et4ae5__HasOptedOutOfMobile__pc": false,
+                        "PersonDoNotCall": false,
+                        "Language__pc": "Korean",
+                        "Country_ISO_Code__c": "KR",
+                        "Select_Country_ISO_Code__c": "KR",
+                        "Personal_Information_Consent__c": true,
+                        "Personal_Information_Consent_date__c": "2024-12-02",
+                        "Personal_Information_Third_Party_Consent__c": true,
+                        "Personal_Information_TP_Consent_date__c": "2024-12-02",
+                        "Personal_Information_Transfer_Consent__c": true,
+                        "Personal_Information_TC_date__c": "2024-12-02",
+                        "Personal_Information_Publicity_Promotion__c": false,
+                        "Personal_Information_PP_Consent_date__c": null,
+                        "Preferred_Sales_Retailer__c": "@{refShowroom.records[0].Id}",
+                        "Primary_Account__c": "@{refUpsertAccount_JLRPrimary.id}",
+                        "Is_Primary__c":"false", 
+                        "Dealer_CI_Code__c":"@{refShowroom.records[0].Dealer_CI_Code__c}", 
+                        "Dealer_CI_Code_2__c":"@{refShowroom.records[0].Dealer_CI_Code_2__c}", 
+                        "Owner_Retailer__c": "@{refShowroom.records[0].Id}" 
+                    }
+                },
+                {
+                    "method": "GET",
+                    "url": "/services/data/v56.0/query/?q=SELECT Id, OwnerId FROM Account WHERE Id = '@{refUpsertAccount.id}'",
+                    "referenceId": "refCustomer"
+                }
+        ]}
+    </pre>
+
+    <h2>3-2. 영업 기회 생성</h2>
+    <pre>
+        [2024-12-02 17:03:07 :137163] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.service.GuestBookBatchService.processCxpCreate:238] - 3. createOppty - Unchanged Account Owner
+        [2024-12-02 17:03:07 :137163] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.cxp.CxpApiService.createOppty:418] - createOppty() -
+        [2024-12-02 17:03:07 :137163] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.cxp.CxpApiService.getAccessToken:54] - getAccessToken() - Bearer 00D5E000000A5jw!AQEAQHckdI0nABv6nKgR7iqmcsFoT.4mLyGZOLwBAVE0Dsd4yfV6Vcimd68h2emhhL0wc2N9u9gJ37X1YINaqD7joexlG_P6, https://cxp--preprod.sandbox.my.salesforce.com
+        [2024-12-02 17:03:07 :137239] [scheduling-1] [39mDEBUG[0;39m [com.jlrk.web.cxp.CxpApiService.createOppty:488] - request : {"allOrNone": true,
+            "collateSubrequests": false,
+            "compositeRequest": [
+                {
+                    "method": "GET",
+                    "url": "/services/data/v56.0/query/?q=SELECT Id, Name, DeveloperName, SobjectType, IsPersonType, IsActive FROM RecordType WHERE SobjectType = 'Opportunity' AND DeveloperName = 'Sales_Process_with_RDA'",
+                    "referenceId": "refOpptyRecordType"
+                },
+                {
+                    "method": "GET",
+                    "url": "/services/data/v56.0/query/?q=SELECT Id, Name, NameLocal FROM Account WHERE RecordType.Name = 'Retailer' AND Record_Sub_Type__c = 'Dual Brand' AND Country_ISO_Code__c = 'KR' AND DMS_Identifier__c = 'B54'",
+                    "referenceId": "refRetailer"
+                },
+                {
+                    "method": "GET",
+                    "url": "/services/data/v56.0/query/?q=SELECT Id, LastName, OwnerId, Dealer_CI_Code_2__c FROM Account  WHERE LastName = '한지연_테스트' AND PersonMobilePhone = '01021263835' AND RecordType.DeveloperName = 'Individual' and Preferred_Sales_Retailer__c = '@{refRetailer.records[0].Id}'",
+                    "referenceId": "refAccount"
+                },
+                {
+                    "method": "GET",
+                    "url": "/services/data/v56.0/query/?q=SELECT Id, Name, Not_Sold_Market_List__c, Make__c FROM Vehicle_Specification__c WHERE RecordType.DeveloperName = 'Model' AND Is_Korea__c = true AND Is_Currently_Sold__c = true AND Not_Sold_In__c EXCLUDES('KR') AND Name = 'New Range Rover'",
+                    "referenceId": "refInterestedModel"
+                },
+                {
+                    "method": "GET",
+                    "url": "/services/data/v56.0/query/?q=SELECT Id, Name FROM Pricebook2 WHERE Name = 'Korea, Republic of'",
+                    "referenceId": "refPriceBook"
+                },
+        
+                {
+                    "method": "POST",
+                    "url": "/services/data/v56.0/sobjects/Opportunity/",
+                    "referenceId": "refOppty",
+                    "body": {
+                        "AccountId":"@{refAccount.records[0].Id}",
+                        "Name": "[GUESTBOOK]@{refAccount.records[0].LastName}-@{refInterestedModel.records[0].Name}",
+                        "StageName": "Negotiation & Approval",
+                        "CloseDate": "2025-03-02",
+                        "Description": null,
+                        "Country_ISO_Code__c": "KR",
+                        "CurrencyIsoCode": "KRW",
+                        "RecordTypeId": "@{refOpptyRecordType.records[0].Id}",
+                        "Purchase_Type__c": "New Vehicle",
+                        <span class="highlight">"LeadSource":"OEM Experience",</span>
+                        "Brand__c": "@{refInterestedModel.records[0].Make__c}",
+                        "Primary_Model_Interest__c": "@{refInterestedModel.records[0].Id}",
+                        "Pricebook2Id": "@{refPriceBook.records[0].Id}",
+                        "Deposit_Status__c": "Created",
+                        "Date_of_Deposit__c": "2024-12-02",
+                        "Expected_Date_Of_Purchase_Hidden__c": "2025-03-02",
+                        "Alternate_Name_of_Depositor__c": null,
+                        "Deposit_Reservation_Amount__c": null,
+                        "Local_deposit_amount__c": null,
+                        "OwnerId": "@{refAccount.records[0].OwnerId}",
+                        "Sale_Type__c": "New",
+                        "Dealer_CI_Code_2__c": "@{refAccount.records[0].Dealer_CI_Code_2__c}"
+                    }
+                }
+            ]}
+    </pre>
+</body>
+</html>

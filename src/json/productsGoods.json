@@ -1,0 +1,76 @@
+[
+    {
+        "id": 1,
+        "name": "SILICON MEAL SPOON",
+        "price": "7,000원",
+        "discount_price": "5,950원",
+        "sale_percentage": "15%",
+        "time_sale_info": "",
+        "icons": [
+            "sale item badge",
+            "timesale item badge",
+            "best item badge",
+            "timesale item badge",
+            "best item badge"
+        ],
+        "imageUrl": "https://cdn.imweb.me/thumbnail/20240913/12669b8be205a.jpg"
+    },
+    {
+        "id": 2,
+        "name": "SILICON MEAL BOX",
+        "price": "22,000원",
+        "discount_price": "18,700원",
+        "sale_percentage": "15%",
+        "time_sale_info": "",
+        "icons": [
+            "sale item badge",
+            "timesale item badge",
+            "best item badge",
+            "timesale item badge",
+            "best item badge"
+        ],
+        "imageUrl": "https://cdn.imweb.me/thumbnail/20240913/288d6aba5e15b.jpg"
+    },
+    {
+        "id": 3,
+        "name": "KEEP POPONE FRESH!",
+        "price": "33,000원",
+        "discount_price": "24,750원",
+        "sale_percentage": "25%",
+        "time_sale_info": "",
+        "icons": [
+            "sale item badge",
+            "timesale item badge",
+            "timesale item badge"
+        ],
+        "imageUrl": "https://cdn.imweb.me/thumbnail/20240624/d9ab947ecd970.jpg"
+    },
+    {
+        "id": 4,
+        "name": "BUNCH OF VEGE, POPO",
+        "price": null,
+        "discount_price": "16,500원",
+        "sale_percentage": null,
+        "time_sale_info": null,
+        "icons": [
+            "sale item badge",
+            "soldout item badge",
+            "sale item badge",
+            "soldout item badge"
+        ],
+        "imageUrl": "https://cdn.imweb.me/thumbnail/20240624/e7343d3b53817.jpg"
+    },
+    {
+        "id": 5,
+        "name": "ENJOY YOUR MEAL",
+        "price": null,
+        "discount_price": "33,000원",
+        "sale_percentage": null,
+        "time_sale_info": null,
+        "icons": [
+            "soldout item badge",
+            "soldout item badge"
+        ],
+        "imageUrl": "https://cdn.imweb.me/thumbnail/20240624/f6faeacc57f54.jpg"
+    }
+]

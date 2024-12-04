@@ -1,0 +1,368 @@
+/*
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    font-family: Arial, sans-serif;
+}
+ */
+
+ html, body {
+    height: 100%;
+    margin: 0;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    /* width: 800px; 고정된 너비 */
+    margin: 0 auto; /* 가운데 정렬 */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+h4 {
+    font-style: italic;
+    color: #333;
+}
+
+.form-control, .form-select {
+    border-radius: 25px;
+}
+
+button {
+    border-radius: 25px;
+    font-size: 18px;
+}
+
+.radio-images, .checkbox-images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.b-radio-images {
+    display: flex;
+    /*flex-wrap: wrap;*/
+    gap: 10px;
+    justify-content: center;
+}
+
+.b-has-img {
+    display: flex;
+    justify-content: center;
+
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.radio-container, .checkbox-container {
+    flex: 1 1 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.checkbox-container-no-flex {
+    flex: 1 1 45%;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.checkbox-container-no-flex label {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.checkbox-container-no-flex .form-control {
+    flex-grow: 1;
+    margin-left: 10px;
+    display: inline-block;
+    width: auto;
+}
+
+.has-img {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.radio-container img, .checkbox-container img {
+    width: 150px;
+}
+
+.radio-container:hover, .checkbox-container:hover {
+    background-color: #f0f0f0;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    display: none;
+}
+
+input[type="radio"]:checked + label, input[type="checkbox"]:checked + label {
+    background-color: #e0e0e0;
+    border-color: #007bff;
+}
+
+.result-section {
+    width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.result-section h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.result-section p {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #555;
+}
+
+.input-group-text.rounded-right {
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+    color: #495057;
+    border-radius: 0 25px 25px 0; /* 오른쪽 둥근 모서리 */
+}
+
+.form-control.rounded-left {
+    border-radius: 25px 0 0 25px; /* 왼쪽 둥근 모서리 */
+}
+
+.form-control.nameInput {
+    border-radius: 25px; /* 완전 둥근 모서리 */
+}
+
+.input-group .form-control {
+    flex: 1 1 auto;
+    width: 1%;
+    min-width: 0;
+}
+
+.progress-bar {
+    background-color: #729B8B;;
+}
+
+.form-check-input {
+    margin-right: 5px;
+}
+
+.form-check-label {
+    margin-left: 5px;
+}
+
+.form-check {
+    flex: 1 1 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ddd;
+    padding: 5px;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.form-check:hover {
+    background-color: #f0f0f0;
+}
+
+/* 선택된 radio 버튼 스타일 */
+.form-check-input:checked + .form-check-label {
+    background-color: #e0e0e0;
+    border-color: #007bff;
+}
+
+.swiper-container {
+    overflow:hidden;
+}
+.model_swiper {
+    width: 100%;
+    padding: 0 0 80px 0;
+}
+.model {
+    margin: auto;
+    position: relative;
+}
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.contents_02 {
+    position: relative;
+    width: 100%;
+}
+
+#buyButton {
+    width: 307px;
+    margin: auto;
+}
+
+#petName {
+    font-style: italic;
+}
+
+#resultKcal {
+    font-style: italic;
+}
+
+/* 칼로리 range bar */
+/*
+.slider-container {
+    width: 350px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+*/
+/* 눈금 바 스타일 */
+.tick-bar {
+    width: 100%;
+    height: 4px;
+    background-color: #eaeaea;
+    position: relative;
+    margin-top: 20px;
+}
+
+/* 눈금 스타일 */
+.tick {
+    position: absolute;
+    height: 10px;
+    width: 1px;
+    background-color: #888;
+    bottom: 0;
+}
+
+/* 큰 눈금 스타일 */
+.tick.large {
+    height: 15px;
+}
+
+/* 눈금과 값 배치 */
+.tick-label {
+    position: absolute;
+    font-size: 12px;
+    color: #888;
+    transform: translateX(-50%);
+    top: 25px;
+}
+
+/* 현재 값 삼각형 표시 */
+.current-value {
+    position: absolute;
+    top: -30px;
+    font-size: 18px;
+    color: #6a0dad;
+}
+
+.current-value {
+    animation: motion 0.3s linear 0s infinite alternate; 
+    margin-top: 0;
+}
+
+@keyframes motion {
+	0% {margin-top: 0px;}
+	100% {margin-top: 10px;}
+}
+
+/*otherGoods*/
+.otherGoods_swiper-container {
+    display: flex;
+    justify-content: space-around; /* Evenly space the cards */
+    flex-wrap: wrap; /* Allow wrapping if there are many items */
+    margin-top: 20px;
+}
+
+.shop-item {
+    width: 230px; /* Adjust as per the image size */
+    padding: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif; /* Example font */
+}
+
+.shop-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.item-wrap a {
+    text-decoration: none;
+    color: black;
+}
+
+.item-wrap h2 {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.sale_price {
+    font-size: 13px;
+    color: #888;
+    text-decoration: line-through;
+}
+
+.special-sale-wrap {
+    font-size: 16px;
+    color: #e74c3c;
+}
+
+.ns-icon img {
+    width: 24px;
+    height: 24px;
+    margin: 5px;
+}

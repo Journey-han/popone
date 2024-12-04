@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Sales Donut Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div style="text-align: center; margin-bottom: 20px;">
+        <button onclick="changeDate(-1)">&larr; 이전 날짜</button>
+        <span id="currentDate"></span>
+        <button onclick="changeDate(1)">다음 날짜 &rarr;</button>
+    </div>
+    <div style="width: 30%; margin: auto;">
+        <canvas id="salesChart"></canvas>
+    </div>
+
+    <script>
+        // 일주일치 데이터 예시
+        const weeklySalesData = {
+            '2024-11-20': [
+                { productName: 'Product A', quantitySold: 20 },
+                { productName: 'Product B', quantitySold: 40 },
+                { productName: 'Product C', quantitySold: 10 },
+                { productName: 'Product D', quantitySold: 30 },
+                { productName: 'Product E', quantitySold: 15 }
+            ],
+            '2024-11-21': [
+                { productName: 'Product A', quantitySold: 35 },
+                { productName: 'Product B', quantitySold: 25 },
+                { productName: 'Product C', quantitySold: 15 },
+                { productName: 'Product D', quantitySold: 10 },
+                { productName: 'Product E', quantitySold: 20 }
+            ],
+            '2024-11-22': [
+                { productName: 'Product A', quantitySold: 30 },
+                { productName: 'Product B', quantitySold: 50 },
+                { productName: 'Product C', quantitySold: 20 },
+                { productName: 'Product D', quantitySold: 40 },
+                { productName: 'Product E', quantitySold: 10 }
+            ],
+            '2024-11-23': [
+                { productName: 'Product A', quantitySold: 40 },
+                { productName: 'Product B', quantitySold: 35 },
+                { productName: 'Product C', quantitySold: 25 },
+                { productName: 'Product D', quantitySold: 20 },
+                { productName: 'Product E', quantitySold: 30 }
+            ],
+            '2024-11-24': [
+                { productName: 'Product A', quantitySold: 25 },
+                { productName: 'Product B', quantitySold: 20 },
+                { productName: 'Product C', quantitySold: 35 },
+                { productName: 'Product D', quantitySold: 15 },
+                { productName: 'Product E', quantitySold: 40 }
+            ],
+            '2024-11-25': [
+                { productName: 'Product A', quantitySold: 30 },
+                { productName: 'Product B', quantitySold: 45 },
+                { productName: 'Product C', quantitySold: 20 },
+                { productName: 'Product D', quantitySold: 25 },
+                { productName: 'Product E', quantitySold: 10 }
+            ],
+            '2024-11-26': [
+                { productName: 'Product A', quantitySold: 50 },
+                { productName: 'Product B', quantitySold: 30 },
+                { productName: 'Product C', quantitySold: 15 },
+                { productName: 'Product D', quantitySold: 20 },
+                { productName: 'Product E', quantitySold: 25 }
+            ]
+        };
+
+        let currentIndex = 0;
+        const dates = Object.keys(weeklySalesData);
+
+        // 날짜 변경 함수
+        function changeDate(direction) {
+            currentIndex = (currentIndex + direction + dates.length) % dates.length;
+            updateChart(dates[currentIndex]);
+        }
+
+        // 차트 업데이트 함수
+        function updateChart(date) {
+            document.getElementById('currentDate').innerText = date;
+            const salesData = weeklySalesData[date];
+            const labels = salesData.map(sale => sale.productName);
+            const quantities = salesData.map(sale => sale.quantitySold);
+
+            salesChart.data.labels = labels;
+            salesChart.data.datasets[0].data = quantities;
+            salesChart.update();
+        }
+
+        // Chart.js를 사용하여 도넛 차트 생성
+        const ctx = document.getElementById('salesChart').getContext('2d');
+        const salesChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'Sales Quantity',
+                    data: [],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    }
+                }
+            }
+        });
+
+        // 초기 차트 설정
+        updateChart(dates[currentIndex]);
+    </script>
+</body>
+</html>

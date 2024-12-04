@@ -1,0 +1,176 @@
+[
+    {
+        "id": 1,
+        "name": "DUCK'S SYRINX",
+        "price": "6,500원",
+        "discount_price": "5,850원",
+        "sale_percentage": "10%",
+        "time_sale_info": "",
+        "icons": [
+            "sale item badge",
+            "timesale item badge",
+            "timesale item badge"
+        ],
+        "imageUrl": "https://cdn.imweb.me/thumbnail/20240911/8bfb21d89260a.jpg"
+    },
+    {
+        "id": 2,
+        "name": "EGGPLANT TURKEY BISCUIT",
+        "price": "7,000원",
+        "discount_price": "6,650원",
+        "sale_percentage": "5%",
+        "time_sale_info": "",
+        "icons": [
+            "sale item badge",
+            "timesale item badge",
+            "best item badge",
+            "timesale item badge",
+            "best item badge"
+        ],
+        "imageUrl": "https://cdn.imweb.me/thumbnail/20240622/b743d4c4d5f3c.jpg"
+    },
+    {
+        "id": 3,
+        "name": "GREAT JOB DUCK TREATS",
+        "price": "6,500원",
+        "discount_price": "6,175원",
+        "sale_percentage": "5%",
+        "time_sale_info": "",
+        "icons": [
+            "sale item badge",
+            "timesale item badge",
+            "timesale item badge"
+        ],
+        "imageUrl": "https://cdn.imweb.me/thumbnail/20240622/76fba3ad04975.jpg"
+    },
+    {
+        "id": 4,
+        "name": "GREAT JOB CHICKEN TREATS",
+        "price": "6,000원",
+        "discount_price": "5,700원",
+        "sale_percentage": "5%",
+        "time_sale_info": "",
+        "icons": [
+            "sale item badge",
+            "timesale item badge",
+            "timesale item badge"
+        ],
+        "imageUrl": "https://cdn.imweb.me/thumbnail/20240622/26c1d50c9ed0c.jpg"
+    },
+    {
+        "id": 5,
+        "name": "GREAT JOB SALMON TREATS",
+        "price": "7,500원",
+        "discount_price": "7,125원",
+        "sale_percentage": "5%",
+        "time_sale_info": "",
+        "icons": [
+            "sale item badge",
+            "timesale item badge",
+            "timesale item badge"
+        ],
+        "imageUrl": "https://cdn.imweb.me/thumbnail/20240622/17f504627c813.jpg"
+    },
+    {
+        "id": 6,
+        "name": "GREAT JOB TURKEY TREATS",
+        "price": "7,000원",
+        "discount_price": "6,650원",
+        "sale_percentage": "5%",
+        "time_sale_info": "",
+        "icons": [
+            "sale item badge",
+            "timesale item badge",
+            "timesale item badge"
+        ],
+        "imageUrl": "https://cdn.imweb.me/thumbnail/20240622/33d1dcb4d45d4.jpg"
+    },
+    {
+        "id": 7,
+        "name": "DUCK'S CARTILAGE",
+        "price": "6,500원",
+        "discount_price": "5,850원",
+        "sale_percentage": "10%",
+        "time_sale_info": "",
+        "icons": [
+            "sale item badge",
+            "timesale item badge",
+            "timesale item badge"
+        ],
+        "imageUrl": "https://cdn.imweb.me/thumbnail/20240622/566ee0930697e.jpg"
+    },
+    {
+        "id": 8,
+        "name": "DUCK ENERGY BAR",
+        "price": "6,800원",
+        "discount_price": "6,460원",
+        "sale_percentage": "5%",
+        "time_sale_info": "",
+        "icons": [
+            "sale item badge",
+            "timesale item badge",
+            "best item badge",
+            "timesale item badge",
+            "best item badge"
+        ],
+        "imageUrl": "https://cdn.imweb.me/thumbnail/20240622/74998c94e6331.jpg"
+    },
+    {
+        "id": 9,
+        "name": "TURKEY'S NECK",
+        "price": "6,000원",
+        "discount_price": "5,400원",
+        "sale_percentage": "10%",
+        "time_sale_info": "",
+        "icons": [
+            "sale item badge",
+            "timesale item badge",
+            "timesale item badge"
+        ],
+        "imageUrl": "https://cdn.imweb.me/thumbnail/20240622/d369bb93beb95.jpg"
+    },
+    {
+        "id": 10,
+        "name": "DUCK'S FEET",
+        "price": "6,000원",
+        "discount_price": "5,400원",
+        "sale_percentage": "10%",
+        "time_sale_info": "",
+        "icons": [
+            "sale item badge",
+            "timesale item badge",
+            "timesale item badge"
+        ],
+        "imageUrl": "https://cdn.imweb.me/thumbnail/20240622/31e22cb4954af.jpg"
+    },
+    {
+        "id": 11,
+        "name": "CARROT&DUCK ON LAMB",
+        "price": "6,500원",
+        "discount_price": "6,175원",
+        "sale_percentage": "5%",
+        "time_sale_info": "",
+        "icons": [
+            "sale item badge",
+            "timesale item badge",
+            "timesale item badge"
+        ],
+        "imageUrl": "https://cdn.imweb.me/thumbnail/20240622/7ef6ab8c85dbb.jpg"
+    },
+    {
+        "id": 12,
+        "name": "EGGPLANT CHICKEN BISCUIT",
+        "price": "6,500원",
+        "discount_price": "6,175원",
+        "sale_percentage": "5%",
+        "time_sale_info": "",
+        "icons": [
+            "sale item badge",
+            "timesale item badge",
+            "best item badge",
+            "timesale item badge",
+            "best item badge"
+        ],
+        "imageUrl": "https://cdn.imweb.me/thumbnail/20240622/256501fa34974.jpg"
+    }
+]

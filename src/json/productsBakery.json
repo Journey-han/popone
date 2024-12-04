@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "name": "BEEF BROWNIE (50g*3ea SET)",
+        "price": "12,000원",
+        "discount_price": "10,200원",
+        "sale_percentage": "15%",
+        "time_sale_info": "",
+        "icons": [
+            "sale item badge",
+            "timesale item badge",
+            "timesale item badge"
+        ],
+        "imageUrl": "https://cdn.imweb.me/thumbnail/20240622/66d6bc1a3a054.jpg"
+    },
+    {
+        "id": 2,
+        "name": "PUMPKIN POUND (50g*4ea SET)",
+        "price": "12,000원",
+        "discount_price": "9,600원",
+        "sale_percentage": "20%",
+        "time_sale_info": "",
+        "icons": [
+            "sale item badge",
+            "timesale item badge",
+            "timesale item badge"
+        ],
+        "imageUrl": "https://cdn.imweb.me/thumbnail/20240622/ffeae636cb754.jpg"
+    }
+]
