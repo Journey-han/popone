@@ -1,5 +1,5 @@
 // 전역 변수 선언
-const formData = {};
+let formData = {};
 let currentStep = 0;
 let newCurrentValue;
 let newTickValues = [];
