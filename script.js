@@ -28,8 +28,8 @@ const steps = [
         label: '성별',
         name: 'gender',
         options: [
-            { value: '남자', label: 'male', image: './src/img/Boy.png' },
-            { value: '여자', label: 'female', image: './src/img/Girl.png' }
+            { value: '남자', label: 'male', image: 'https://journey-han.github.io/popone/src/img/Boy.png' },
+            { value: '여자', label: 'female', image: 'https://journey-han.github.io/popone/src/img/Girl.png' }
         ]
     },
     {
@@ -64,9 +64,9 @@ const steps = [
         label: '하루 활동량',
         name: 'lifeStyle',
         options: [
-            { value: '게으른', label: 'Lazy', image: './src/img/Lazy.png' },
-            { value: '활동적인', label: 'Active', image: './src/img/Active.png' },
-            { value: '매우 활동적인', label: 'Very Active', image: './src/img/Very_Active.png' }
+            { value: '게으른', label: 'Lazy', image: 'https://journey-han.github.io/popone/src/img/Lazy.png' },
+            { value: '활동적인', label: 'Active', image: 'https://journey-han.github.io/popone/src/img/Active.png' },
+            { value: '매우 활동적인', label: 'Very Active', image: 'https://journey-han.github.io/popone/src/img/Very_Active.png' }
         ]
     },
     {
@@ -75,10 +75,10 @@ const steps = [
         label: '체형',
         name: 'bodyType',
         options: [
-            { value: '조금 마른', label: 'A little skinny', image: './src/img/A_little_skinny.png' },
-            { value: '적당한', label: 'Just right', image: './src/img/Just_right.png' },
-            { value: '과체중', label: 'A little chubby', image: './src/img/A_little_chubby.png' },
-            { value: '비만', label: 'Obese', image: './src/img/Obese.png' }
+            { value: '조금 마른', label: 'A little skinny', image: 'https://journey-han.github.io/popone/src/img/A_little_skinny.png' },
+            { value: '적당한', label: 'Just right', image: 'https://journey-han.github.io/popone/src/img/Just_right.png' },
+            { value: '과체중', label: 'A little chubby', image: 'https://journey-han.github.io/popone/src/img/A_little_chubby.png' },
+            { value: '비만', label: 'Obese', image: 'https://journey-han.github.io/popone/src/img/Obese.png' }
         ]
     },
     {
@@ -709,32 +709,32 @@ function renderResults() {
         }
 
         const images = [
-            { src: './src/img/result1.png', alt: 'PorkDance' },
-            { src: './src/img/result2.png', alt: 'StrongHeartBeef' },
-            { src: './src/img/result3.png', alt: 'ColorfulChickenBowl' },
-            { src: './src/img/result4.png', alt: 'Light&TastyDuck' },
-            { src: './src/img/result5.png', alt: 'LambFlower' },
-            { src: './src/img/result6.png', alt: 'HeroHorseProtein' },
-            { src: './src/img/result7.png', alt: 'JointBoostFish' }
+            { src: 'https://journey-han.github.io/popone/src/img/result1.png', alt: 'PorkDance' },
+            { src: 'https://journey-han.github.io/popone/src/img/result2.png', alt: 'StrongHeartBeef' },
+            { src: 'https://journey-han.github.io/popone/src/img/result3.png', alt: 'ColorfulChickenBowl' },
+            { src: 'https://journey-han.github.io/popone/src/img/result4.png', alt: 'Light&TastyDuck' },
+            { src: 'https://journey-han.github.io/popone/src/img/result5.png', alt: 'LambFlower' },
+            { src: 'https://journey-han.github.io/popone/src/img/result6.png', alt: 'HeroHorseProtein' },
+            { src: 'https://journey-han.github.io/popone/src/img/result7.png', alt: 'JointBoostFish' }
         ];
 
         if (key === 'allergy') {
             // 조건에 따라 추가할 이미지 배열
             const additionalImages = value.flatMap(value => {
                 if (value === '돼지') {
-                    return { src: './src/img/result1.png', alt: 'PorkDance' };
+                    return { src: 'https://journey-han.github.io/popone/src/img/result1.png', alt: 'PorkDance' };
                 } else if (value === '소') {
-                    return { src: './src/img/result2.png', alt: 'StrongHeartBeef' };
+                    return { src: 'https://journey-han.github.io/popone/src/img/result2.png', alt: 'StrongHeartBeef' };
                 } else if (value === '닭' || value === '칠면조') {
-                    return { src: './src/img/result3.png', alt: 'ColorfulChickenBowl' };
+                    return { src: 'https://journey-han.github.io/popone/src/img/result3.png', alt: 'ColorfulChickenBowl' };
                 } else if (value === '오리') {
-                    return { src: './src/img/result4.png', alt: 'Light&TastyDuck' };
+                    return { src: 'https://journey-han.github.io/popone/src/img/result4.png', alt: 'Light&TastyDuck' };
                 } else if (value === '양') {
-                    return { src: './src/img/result5.png', alt: 'LambFlower' };
+                    return { src: 'https://journey-han.github.io/popone/src/img/result5.png', alt: 'LambFlower' };
                 } else if (value === '말') {
-                    return { src: './src/img/result6.png', alt: 'HeroHorseProtein' };
+                    return { src: 'https://journey-han.github.io/popone/src/img/result6.png', alt: 'HeroHorseProtein' };
                 } else if (value === '흰살생선' || value === '연어') {
-                    return { src: './src/img/result7.png', alt: 'JointBoostFish' };
+                    return { src: 'https://journey-han.github.io/popone/src/img/result7.png', alt: 'JointBoostFish' };
                 } else {
                     return [];
                 }
@@ -776,12 +776,12 @@ function renderResults() {
     // Swiper 스타일 삽입
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = './src/css/swiper.css';
+    link.href = 'https://journey-han.github.io/popone/src/css/swiper.css';
     document.head.appendChild(link);
 
     // Swiper 초기화 스크립트 삽입
     const script = document.createElement('script');
-    script.src = "./src/js/swiper.min.js";
+    script.src = "https://journey-han.github.io/popone/src/js/swiper.min.js";
     document.body.appendChild(script);
     script.onload = () => {
         const swiperOptions = {
