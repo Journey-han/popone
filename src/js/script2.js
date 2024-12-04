@@ -162,27 +162,18 @@ let fectors = {
     }
 };
 
-/*
-// 슬라이더 값 업데이트 함수
-function updateSliderValues(currentValue, tickValues) {
-    let currentElement = document.getElementById('current-value');
-    let percentage = (currentValue - tickValues[0]) / (tickValues[tickValues.length - 1] - tickValues[0]) * 100;
-    currentElement.style.left = percentage + '%';
-
-    let tickLabels = ['label-0', 'label-1', 'label-2', 'label-3', 'label-4', 'label-5', 'label-6', 'label-7', 'label-8', 'label-9', 'label-10'];
-    tickLabels.forEach((labelId, index) => {
-        let labelElement = document.getElementById(labelId);
-        if (labelElement) {
-            labelElement.textContent = tickValues[index];
-        }
-    });
-}
-
 // 동적으로 Tick 값을 생성하는 함수
 function generateTickValues(newCurrentValue) {
+    let currentValue = '';
+    if (newCurrentValue.includes('~')) {
+        let temp = newCurrentValue.split('~');
+        currentValue = temp[1].trim();
+    } else {
+        currentValue = newCurrentValue;
+    }
     let step = 10;
     let rangeSize = 100;
-    let minTickValue = Math.floor(newCurrentValue / rangeSize) * rangeSize;
+    let minTickValue = Math.floor(currentValue / rangeSize) * rangeSize;
     let maxTickValue = minTickValue + rangeSize;
 
     let tickValues = [];
@@ -193,7 +184,34 @@ function generateTickValues(newCurrentValue) {
     newTickValues = tickValues; // 전역 변수 업데이트
     return newTickValues;
 }
-    */
+
+// 슬라이더 값 업데이트 함수
+function updateSliderValues(newCurrentValue, newTickValues) {
+    let currentValue = '';
+    if (newCurrentValue.includes('~')) {
+        let temp = newCurrentValue.split('~');
+        currentValue = temp[1].trim();
+    } else {
+        currentValue = newCurrentValue;
+    }
+    let currentElement = document.getElementById('current-value');
+    let percentage = (currentValue - newTickValues[0]) / (newTickValues[newTickValues.length - 1] - newTickValues[0]) * 100;
+    console.log('percentage:',percentage)
+    console.log('currentValue:',currentValue)
+    console.log('tickValues[0]:',newTickValues[0])
+    console.log('tickValues[tickValues.length - 1]:',newTickValues[newTickValues.length - 1])
+    currentElement.style.left = percentage + '%';
+    currentElement.style.left = `calc(${percentage}% - 10px)`;
+
+    let tickLabels = ['label-0', 'label-1', 'label-2', 'label-3', 'label-4', 'label-5', 'label-6', 'label-7', 'label-8', 'label-9', 'label-10'];
+    tickLabels.forEach((labelId, index) => {
+        let labelElement = document.getElementById(labelId);
+        if (labelElement) {
+            labelElement.textContent = newTickValues[index];
+        }
+    });
+}
+
 
 // form data 가져오기 함수
 function getFormData(step) {
@@ -291,7 +309,7 @@ function renderStep(step) {
                 });
             });
 
-            //document.getElementById('form-container').appendChild(radioGroup);
+            document.getElementById('form-container').appendChild(radioGroup);
 
             formGroup.appendChild(radioGroup);
 
@@ -520,7 +538,7 @@ function renderResults() {
             newCurrentValue = calculationResult;
         }
 
-        //generateTickValues(newCurrentValue);
+        generateTickValues(newCurrentValue);
 
         let value = formData[key];
         if (key === 'name') {
@@ -580,6 +598,37 @@ function renderResults() {
             <h3><span id="petName">${petName}</span>의 하루 권장 칼로리는 
             <br><span id="resultKcal">${calculationResult}Kcal</span>입니다!</h3>
             <br>
+            <div class="tick-bar">
+                    <div class="current-value" id="current-value" style="font-size: 40px">▼</div>
+
+                    <div class="tick large" style="left: 0%;" id="tick-0"></div>
+                    <div class="tick" style="left: 10%;" id="tick-1"></div>
+                    <div class="tick" style="left: 20%;" id="tick-2"></div>
+                    <div class="tick" style="left: 30%;" id="tick-3"></div>
+                    <div class="tick large" style="left: 40%;" id="tick-4"></div>
+                    <div class="tick" style="left: 50%;" id="tick-5"></div>
+                    <div class="tick" style="left: 60%;" id="tick-6"></div>
+                    <div class="tick large" style="left: 70%;" id="tick-7"></div>
+                    <div class="tick" style="left: 80%;" id="tick-8"></div>
+                    <div class="tick" style="left: 90%;" id="tick-9"></div>
+                    <div class="tick large" style="left: 100%;" id="tick-10"></div>
+
+                    <div class="tick-label" id="label-0" style="left: 0%;">0</div>
+                    <div class="tick-label" id="label-1" style="left: 10%;">1</div>
+                    <div class="tick-label" id="label-2" style="left: 20%;">2</div>
+                    <div class="tick-label" id="label-3" style="left: 30%;">3</div>
+                    <div class="tick-label" id="label-4" style="left: 40%;">4</div>
+                    <div class="tick-label" id="label-5" style="left: 50%;">5</div>
+                    <div class="tick-label" id="label-6" style="left: 60%;">6</div>
+                    <div class="tick-label" id="label-7" style="left: 70%;">7</div>
+                    <div class="tick-label" id="label-8" style="left: 80%;">8</div>
+                    <div class="tick-label" id="label-9" style="left: 90%;">9</div>
+                    <div class="tick-label" id="label-10" style="left: 100%;">10</div>
+                </div>
+                <br>
+            <br>
+            <br>
+            <br>
             <h3><span id="petName">${petName}</span>의 맞춤식을 추천해드릴게요!<h3>
             <div class="slider-container">
             </div>
@@ -615,7 +664,7 @@ function renderResults() {
     };
     */
 
-    //updateSliderValues(newCurrentValue, newTickValues);
+    updateSliderValues(newCurrentValue, newTickValues);
 
     // Swiper 스타일 및 스크립트 로드
     let link = document.createElement('link');
@@ -644,6 +693,7 @@ function renderResults() {
         }
         new Swiper('.swiper-container', swiperOptions);
 
+        /*
         let otherGoodsSwiperOptions = {
             slidesPerView: 3,
             spaceBetween: 10,
@@ -660,9 +710,9 @@ function renderResults() {
                 prevEl: '.swiper-button-prev',
             };
         }
-    
         // Initialize Swiper for the other goods section
         new Swiper('.otherGoods_swiper-container', otherGoodsSwiperOptions);
+        */
     };
 }
 
@@ -832,7 +882,7 @@ function validChk() {
     return true;
         
 }
-/*
+
 let otherProducts = [ 
     {
         "id": 1,
@@ -992,6 +1042,7 @@ let otherProducts = [
         </div>`;
     }
 
+    /*
 // 제품 데이터를 사용하여 슬라이드에 추가
 function loadProducts() {
     let sliderContainer = document.getElementById('otherGoods_swiper-wrapper');
@@ -1001,7 +1052,6 @@ function loadProducts() {
 }
 
 // JSON 파일에서 데이터를 가져오는 함수
-/*
 async function fetchProducts() {
     try {
         let response = await fetch('https://journey-han.github.io/popone/src/json/productsSnack.json');
@@ -1015,11 +1065,10 @@ async function fetchProducts() {
         return [];
     }
 }
-*/
 
 
 // DOM이 준비되면 JSON 파일에서 제품을 가져와서 슬라이드에 추가
-/*
+
 document.addEventListener('DOMContentLoaded', function() {
     fetchProducts().then(products => {
         loadProducts(products);
@@ -1041,3 +1090,4 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 */
+

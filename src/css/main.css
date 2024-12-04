@@ -12,7 +12,10 @@ html, body {
 
  html, body {
     height: 100%;
-    margin: 0;
+    margin: 0;.current-value {
+    animation: motion 0.3s linear 0s infinite alternate;
+    margin: 0 0 0 100;
+}
     font-family: Arial, sans-serif;
 }
 
@@ -306,6 +309,7 @@ input[type="radio"]:checked + label, input[type="checkbox"]:checked + label {
 .current-value {
     animation: motion 0.3s linear 0s infinite alternate; 
     margin-top: 0;
+    transform: translateY(-20px); /* 위로 10px 이동 */
 }
 
 @keyframes motion {
