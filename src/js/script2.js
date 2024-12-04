@@ -30,8 +30,8 @@ const steps = [
         label: '성별',
         name: 'gender',
         options: [
-            { value: '남자', label: 'male', image: './src/img/Boy.png' },
-            { value: '여자', label: 'female', image: './src/img/Girl.png' }
+            { value: '남자', label: 'male', image: 'https://journey-han.github.io/popone/src/img/Boy.png' },
+            { value: '여자', label: 'female', image: 'https://journey-han.github.io/popone/src/img/Girl.png' }
         ]
     },
     {
@@ -66,9 +66,9 @@ const steps = [
         label: '하루 활동량',
         name: 'lifeStyle',
         options: [
-            { value: '게으른', label: 'Lazy', image: './src/img/Lazy.png' },
-            { value: '활동적인', label: 'Active', image: './src/img/Active.png' },
-            { value: '매우 활동적인', label: 'Very Active', image: './src/img/Very_Active.png' }
+            { value: '게으른', label: 'Lazy', image: 'https://journey-han.github.io/popone/src/img/Lazy.png' },
+            { value: '활동적인', label: 'Active', image: 'https://journey-han.github.io/popone/src/img/Active.png' },
+            { value: '매우 활동적인', label: 'Very Active', image: 'https://journey-han.github.io/popone/src/img/Very_Active.png' }
         ]
     },
     {
@@ -77,10 +77,10 @@ const steps = [
         label: '체형',
         name: 'bodyType',
         options: [
-            { value: '조금 마른', label: 'A little skinny', image: './src/img/A_little_skinny.png' },
-            { value: '적당한', label: 'Just right', image: './src/img/Just_right.png' },
-            { value: '과체중', label: 'A little chubby', image: './src/img/A_little_chubby.png' },
-            { value: '비만', label: 'Obese', image: './src/img/Obese.png' }
+            { value: '조금 마른', label: 'A little skinny', image: 'https://journey-han.github.io/popone/src/img/A_little_skinny.png' },
+            { value: '적당한', label: 'Just right', image: 'https://journey-han.github.io/popone/src/img/Just_right.png' },
+            { value: '과체중', label: 'A little chubby', image: 'https://journey-han.github.io/popone/src/img/A_little_chubby.png' },
+            { value: '비만', label: 'Obese', image: 'https://journey-han.github.io/popone/src/img/Obese.png' }
         ]
     },
     {
@@ -529,32 +529,32 @@ function renderResults() {
 
         // 이미지 필터링 처리 및 슬라이드 생성
         const images = [
-            { src: './src/img/result_pork.png', alt: 'result_pork', url: 'https://popone.kr/729973229/?idx=48' },
-            { src: './src/img/result_beef.png', alt: 'result_beef', url: 'https://popone.kr/729973229/?idx=49' },
-            { src: './src/img/result_chicken.png', alt: 'result_chicken', url: 'https://popone.kr/729973229/?idx=50' },
-            { src: './src/img/result_duck.png', alt: 'result_duck', url: 'https://popone.kr/729973229/?idx=51' },
-            { src: './src/img/result_lamb.png', alt: 'result_lamb', url: 'https://popone.kr/729973229/?idx=52' },
-            { src: './src/img/result_horse.png', alt: 'result_horse', url: 'https://popone.kr/729973229/?idx=53' },
-            { src: './src/img/result_fish.png', alt: 'result_fish', url: 'https://popone.kr/729973229/?idx=54' }
+            { src: 'https://journey-han.github.io/popone/src/img/result_pork.png', alt: 'result_pork', url: 'https://popone.kr/729973229/?idx=48' },
+            { src: 'https://journey-han.github.io/popone/src/img/result_beef.png', alt: 'result_beef', url: 'https://popone.kr/729973229/?idx=49' },
+            { src: 'https://journey-han.github.io/popone/src/img/result_chicken.png', alt: 'result_chicken', url: 'https://popone.kr/729973229/?idx=50' },
+            { src: 'https://journey-han.github.io/popone/src/img/result_duck.png', alt: 'result_duck', url: 'https://popone.kr/729973229/?idx=51' },
+            { src: 'https://journey-han.github.io/popone/src/img/result_lamb.png', alt: 'result_lamb', url: 'https://popone.kr/729973229/?idx=52' },
+            { src: 'https://journey-han.github.io/popone/src/img/result_horse.png', alt: 'result_horse', url: 'https://popone.kr/729973229/?idx=53' },
+            { src: 'https://journey-han.github.io/popone/src/img/result_fish.png', alt: 'result_fish', url: 'https://popone.kr/729973229/?idx=54' }
         ];
 
         if (key === 'allergy') {
             // 조건에 따라 추가할 이미지 배열
             const additionalImages = value.flatMap(value => {
                 if (value === '돼지') {
-                    return { src: './src/img/result_pork.png', alt: 'result_pork', url: 'https://popone.kr/729973229/?idx=48' };
+                    return { src: 'https://journey-han.github.io/popone/src/img/result_pork.png', alt: 'result_pork', url: 'https://popone.kr/729973229/?idx=48' };
                 } else if (value === '소') {
-                    return { src: './src/img/result_beef.png', alt: 'result_beef', url: 'https://popone.kr/729973229/?idx=49' };
+                    return { src: 'https://journey-han.github.io/popone/src/img/result_beef.png', alt: 'result_beef', url: 'https://popone.kr/729973229/?idx=49' };
                 } else if (value === '닭' || value === '칠면조') {
-                    return { src: './src/img/result_chicken.png', alt: 'result_chicken', url: 'https://popone.kr/729973229/?idx=50' };
+                    return { src: 'https://journey-han.github.io/popone/src/img/result_chicken.png', alt: 'result_chicken', url: 'https://popone.kr/729973229/?idx=50' };
                 } else if (value === '오리') {
-                    return { src: './src/img/result_duck.png', alt: 'result_duck', url: 'https://popone.kr/729973229/?idx=51' };
+                    return { src: 'https://journey-han.github.io/popone/src/img/result_duck.png', alt: 'result_duck', url: 'https://popone.kr/729973229/?idx=51' };
                 } else if (value === '양') {
-                    return { src: './src/img/result_lamb.png', alt: 'result_lamb', url: 'https://popone.kr/729973229/?idx=52' };
+                    return { src: 'https://journey-han.github.io/popone/src/img/result_lamb.png', alt: 'result_lamb', url: 'https://popone.kr/729973229/?idx=52' };
                 } else if (value === '말') {
-                    return { src: './src/img/result_horse.png', alt: 'result_horse', url: 'https://popone.kr/729973229/?idx=53' };
+                    return { src: 'https://journey-han.github.io/popone/src/img/result_horse.png', alt: 'result_horse', url: 'https://popone.kr/729973229/?idx=53' };
                 } else if (value === '흰살생선' || value === '연어') {
-                    return { src: './src/img/result_fish.png', alt: 'result_fish', url: 'https://popone.kr/729973229/?idx=54' };
+                    return { src: 'https://journey-han.github.io/popone/src/img/result_fish.png', alt: 'result_fish', url: 'https://popone.kr/729973229/?idx=54' };
                 } else {
                     return [];
                 }
@@ -570,7 +570,7 @@ function renderResults() {
             <div class="re_img">
                 <img src="${image.src}" alt="${image.alt}">
                 </br>
-                <a href="${image.url}" target="blank"><img src="./src/img/buyButton.png" id="buyButton"></a>
+                <a href="${image.url}" target="blank"><img src="https://journey-han.github.io/popone/src/img/buyButton.png" id="buyButton"></a>
                 </br>
             </div>
         </div>
@@ -620,11 +620,11 @@ function renderResults() {
     // Swiper 스타일 및 스크립트 로드
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = './src/css/swiper.css';
+    link.href = 'https://journey-han.github.io/popone/src/css/swiper.css';
     document.head.appendChild(link);
 
     const script = document.createElement('script');
-    script.src = "./src/js/swiper.min.js";
+    script.src = "https://journey-han.github.io/popone/src/js/swiper.min.js";
     document.body.appendChild(script);
     script.onload = () => {
         const swiperOptions = {
@@ -1004,7 +1004,7 @@ function loadProducts() {
 /*
 async function fetchProducts() {
     try {
-        const response = await fetch('./src/json/productsSnack.json');
+        const response = await fetch('https://journey-han.github.io/popone/src/json/productsSnack.json');
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
